@@ -21,6 +21,7 @@
 		886CD35318E0CB29002275D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33518E0CB29002275D6 /* UIKit.framework */; };
 		886CD35B18E0CB29002275D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 886CD35918E0CB29002275D6 /* InfoPlist.strings */; };
 		886CD35D18E0CB29002275D6 /* FidoDoorOpenerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CD35C18E0CB29002275D6 /* FidoDoorOpenerTests.m */; };
+		88DD526B18E23C3E00FF2760 /* TNTCreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DD526A18E23C3E00FF2760 /* TNTCreateAccountViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		886CD35818E0CB29002275D6 /* FidoDoorOpenerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FidoDoorOpenerTests-Info.plist"; sourceTree = "<group>"; };
 		886CD35A18E0CB29002275D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		886CD35C18E0CB29002275D6 /* FidoDoorOpenerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FidoDoorOpenerTests.m; sourceTree = "<group>"; };
+		88DD526918E23C3E00FF2760 /* TNTCreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTCreateAccountViewController.h; sourceTree = "<group>"; };
+		88DD526A18E23C3E00FF2760 /* TNTCreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTCreateAccountViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				886CD34018E0CB29002275D6 /* TNTAppDelegate.h */,
 				886CD34118E0CB29002275D6 /* TNTAppDelegate.m */,
 				886CD34318E0CB29002275D6 /* Main.storyboard */,
+				88DD526918E23C3E00FF2760 /* TNTCreateAccountViewController.h */,
+				88DD526A18E23C3E00FF2760 /* TNTCreateAccountViewController.m */,
 				886CD34618E0CB29002275D6 /* TNTLaunchViewController.h */,
 				886CD34718E0CB29002275D6 /* TNTLaunchViewController.m */,
 				886CD34918E0CB29002275D6 /* Images.xcassets */,
@@ -252,6 +257,7 @@
 			files = (
 				886CD33E18E0CB29002275D6 /* main.m in Sources */,
 				886CD34218E0CB29002275D6 /* TNTAppDelegate.m in Sources */,
+				88DD526B18E23C3E00FF2760 /* TNTCreateAccountViewController.m in Sources */,
 				886CD34818E0CB29002275D6 /* TNTLaunchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

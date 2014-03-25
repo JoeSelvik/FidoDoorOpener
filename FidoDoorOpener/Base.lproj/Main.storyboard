@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="924" y="202"/>
         </scene>
-        <!--View Controller - Create Account-->
+        <!--Create Account View Controller - Create Account-->
         <scene sceneID="4lt-0k-moG">
             <objects>
-                <viewController id="nc1-7y-88f" sceneMemberID="viewController">
+                <viewController id="nc1-7y-88f" customClass="TNTCreateAccountViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="skX-Lu-Ua6"/>
                         <viewControllerLayoutGuide type="bottom" id="ROZ-B8-Lde"/>
@@ -82,6 +82,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Account" id="nex-CJ-S9u"/>
+                    <connections>
+                        <outlet property="emailInput" destination="eYw-MQ-vRm" id="i34-Db-ovR"/>
+                        <outlet property="fullnameInput" destination="GoY-3P-KHt" id="Hf7-ja-y0I"/>
+                        <outlet property="passwordInput" destination="mj4-d4-CkK" id="KZd-nR-7FR"/>
+                        <outlet property="signupButton" destination="WW5-zc-7Ji" id="NRw-DG-sV1"/>
+                        <outlet property="usernameInput" destination="oac-7E-UMa" id="Bqx-IG-wBW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCs-mG-cb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
