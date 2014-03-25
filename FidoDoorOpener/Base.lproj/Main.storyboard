@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Launch View Controller-->
+        <!--Launch View Controller - Fido-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="TNTLaunchViewController" sceneMemberID="viewController">
@@ -15,13 +15,44 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiL-Io-WDA">
+                                <rect key="frame" x="107" y="385" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="nc1-7y-88f" kind="push" id="yx1-GU-gi2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="o30-G4-HYn"/>
+                    <navigationItem key="navigationItem" title="Fido" id="o30-G4-HYn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="924" y="202"/>
+        </scene>
+        <!--View Controller - Create Account-->
+        <scene sceneID="4lt-0k-moG">
+            <objects>
+                <viewController id="nc1-7y-88f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="skX-Lu-Ua6"/>
+                        <viewControllerLayoutGuide type="bottom" id="ROZ-B8-Lde"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KlW-Gw-ysC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Account" id="nex-CJ-S9u"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCs-mG-cb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1472" y="-296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oaV-Cg-H7s">
