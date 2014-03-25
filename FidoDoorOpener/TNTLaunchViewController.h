@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TNTViewController : UIViewController
+@interface TNTLaunchViewController : UIViewController
 
 @end

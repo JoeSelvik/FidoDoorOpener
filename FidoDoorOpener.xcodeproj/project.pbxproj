@@ -14,7 +14,7 @@
 		886CD33E18E0CB29002275D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CD33D18E0CB29002275D6 /* main.m */; };
 		886CD34218E0CB29002275D6 /* TNTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CD34118E0CB29002275D6 /* TNTAppDelegate.m */; };
 		886CD34518E0CB29002275D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886CD34318E0CB29002275D6 /* Main.storyboard */; };
-		886CD34818E0CB29002275D6 /* TNTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CD34718E0CB29002275D6 /* TNTViewController.m */; };
+		886CD34818E0CB29002275D6 /* TNTLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CD34718E0CB29002275D6 /* TNTLaunchViewController.m */; };
 		886CD34A18E0CB29002275D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886CD34918E0CB29002275D6 /* Images.xcassets */; };
 		886CD35118E0CB29002275D6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD35018E0CB29002275D6 /* XCTest.framework */; };
 		886CD35218E0CB29002275D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33118E0CB29002275D6 /* Foundation.framework */; };
@@ -45,8 +45,8 @@
 		886CD34018E0CB29002275D6 /* TNTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNTAppDelegate.h; sourceTree = "<group>"; };
 		886CD34118E0CB29002275D6 /* TNTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNTAppDelegate.m; sourceTree = "<group>"; };
 		886CD34418E0CB29002275D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		886CD34618E0CB29002275D6 /* TNTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNTViewController.h; sourceTree = "<group>"; };
-		886CD34718E0CB29002275D6 /* TNTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNTViewController.m; sourceTree = "<group>"; };
+		886CD34618E0CB29002275D6 /* TNTLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNTLaunchViewController.h; sourceTree = "<group>"; };
+		886CD34718E0CB29002275D6 /* TNTLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNTLaunchViewController.m; sourceTree = "<group>"; };
 		886CD34918E0CB29002275D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		886CD34F18E0CB29002275D6 /* FidoDoorOpenerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FidoDoorOpenerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		886CD35018E0CB29002275D6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -115,8 +115,8 @@
 				886CD34018E0CB29002275D6 /* TNTAppDelegate.h */,
 				886CD34118E0CB29002275D6 /* TNTAppDelegate.m */,
 				886CD34318E0CB29002275D6 /* Main.storyboard */,
-				886CD34618E0CB29002275D6 /* TNTViewController.h */,
-				886CD34718E0CB29002275D6 /* TNTViewController.m */,
+				886CD34618E0CB29002275D6 /* TNTLaunchViewController.h */,
+				886CD34718E0CB29002275D6 /* TNTLaunchViewController.m */,
 				886CD34918E0CB29002275D6 /* Images.xcassets */,
 				886CD33818E0CB29002275D6 /* Supporting Files */,
 			);
@@ -252,7 +252,7 @@
 			files = (
 				886CD33E18E0CB29002275D6 /* main.m in Sources */,
 				886CD34218E0CB29002275D6 /* TNTAppDelegate.m in Sources */,
-				886CD34818E0CB29002275D6 /* TNTViewController.m in Sources */,
+				886CD34818E0CB29002275D6 /* TNTLaunchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +457,7 @@
 				886CD36218E0CB29002275D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		886CD36318E0CB29002275D6 /* Build configuration list for PBXNativeTarget "FidoDoorOpenerTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +466,7 @@
 				886CD36518E0CB29002275D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

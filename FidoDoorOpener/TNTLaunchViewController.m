@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Joe Selvik. All rights reserved.
 //
 
-#import "TNTViewController.h"
+#import "TNTLaunchViewController.h"
 
-@interface TNTViewController ()
+@interface TNTLaunchViewController ()
 
 @end
 
-@implementation TNTViewController
+@implementation TNTLaunchViewController
 
 - (void)viewDidLoad
 {
