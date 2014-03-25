@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *fullnameInput;
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 
-@property (weak, nonatomic) IBOutlet UIButton *signupButton;
+- (IBAction)signupButton:(id)sender;
 
 @end
 
@@ -53,4 +53,9 @@
 }
 */
 
+#pragma mark - Button Actions
+
+- (IBAction)signupButton:(id)sender {
+    // send stuff to Scooby!
+}
 @end
