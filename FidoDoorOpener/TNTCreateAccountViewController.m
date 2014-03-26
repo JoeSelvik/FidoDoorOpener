@@ -67,6 +67,27 @@
                           cancelButtonTitle:@"Close"
                           otherButtonTitles: nil] show];
     }
+    
+    // Put text from text fields into a dictionary
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                              self.usernameInput.text, @"username",
+                              self.passwordInput.text, @"password",
+                              self.fullnameInput.text, @"full_name",
+                              self.emailInput.text, @"email",
+                              nil];
+    
+    NSString *jsonString;
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo options:NSJSONWritingPrettyPrinted error:&error];
+    
+    if (!jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        // TODO - check which encoding to use
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    NSLog(@"JSON String: %@", jsonString);
 }
 
 #pragma mark - Validation Methods
