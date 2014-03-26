@@ -55,9 +55,43 @@
 
 #pragma mark - Button Actions
 
-
+// When the 'Sign Up' button is pressed send a request to Scooby to create a new User
 - (IBAction)signupButton:(id)sender
 {
-    // Send fields to Scooby!
+    // Make sure all text fields have valid input
+    if (![self validateUsernameInput] || ![self validatePasswordInput] || ![self validateFullnameInput] || ![self validateEmailInput]) {
+        // Show an alert prompting user to fill all fields
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Please enter something in each text field."
+                                   delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles: nil] show];
+    }
 }
+
+#pragma mark - Validation Methods
+
+- (BOOL)validateUsernameInput
+{
+    return [self.usernameInput.text length];
+}
+
+- (BOOL)validatePasswordInput
+{
+    return [self.passwordInput.text length];
+}
+
+- (BOOL)validateFullnameInput
+{
+    return [self.fullnameInput.text length];
+}
+
+- (BOOL)validateEmailInput
+{
+    return [self.emailInput.text length];
+}
+
+//if (![self validateUserName] || ![self validateUserPhoneNumber] || ![self validateUserX500])
+
+
 @end
