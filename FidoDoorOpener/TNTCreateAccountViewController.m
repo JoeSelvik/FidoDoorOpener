@@ -87,7 +87,19 @@
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
+    NSLog(@"JSON Data: %@", jsonData);
     NSLog(@"JSON String: %@", jsonString);
+    
+    // Send jsonString to Scooby!
+    
+    // Create request
+    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://fido-api.thenewtricks.com/latest/users/"]];
+    [req setHTTPBody:jsonData];
+    [req setHTTPMethod:@"POST"];
+    [req addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    //[[NSURLSession alloc] ini]
+    
 }
 
 #pragma mark - Validation Methods
