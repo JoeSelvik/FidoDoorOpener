@@ -90,23 +90,19 @@
     NSLog(@"JSON Data: %@", jsonData);
     NSLog(@"JSON String: %@", jsonString);
     
-    // Send jsonString to Scooby!
-    
-    // Create request
+    // Send jsonString to Scooby and display the response in the NSLog!
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://fido-api.thenewtricks.com/latest/users/"]];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSData *urlData;
-    NSURLResponse *response;
+    NSURLResponse *response;    // Use NSHTTPURLResponse?
     NSError *responseError;
-    NSString *responseString;
     
     urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&responseError];
     
-    NSLog(@"Response string: %@", [responseString initWithData:urlData encoding:NSUTF8StringEncoding]);
-    
+    NSLog(@"Response string: %@", [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]);
 }
 
 #pragma mark - Validation Methods
