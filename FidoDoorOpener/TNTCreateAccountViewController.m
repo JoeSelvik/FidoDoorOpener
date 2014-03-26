@@ -77,11 +77,11 @@
                               nil];
     
     NSString *jsonString;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo options:NSJSONWritingPrettyPrinted error:&error];
+    NSError *jsonError;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo options:NSJSONWritingPrettyPrinted error:&jsonError];
     
     if (!jsonData) {
-        NSLog(@"Got an error: %@", error);
+        NSLog(@"Got a jsonError: %@", jsonError);
     } else {
         // TODO - check which encoding to use
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -93,12 +93,19 @@
     // Send jsonString to Scooby!
     
     // Create request
-    NSMutableURLRequest *req = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://fido-api.thenewtricks.com/latest/users/"]];
-    [req setHTTPBody:jsonData];
-    [req setHTTPMethod:@"POST"];
-    [req addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://fido-api.thenewtricks.com/latest/users/"]];
+    [request setHTTPBody:jsonData];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    //[[NSURLSession alloc] ini]
+    NSData *urlData;
+    NSURLResponse *response;
+    NSError *responseError;
+    NSString *responseString;
+    
+    urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&responseError];
+    
+    NSLog(@"Response string: %@", [responseString initWithData:urlData encoding:NSUTF8StringEncoding]);
     
 }
 
