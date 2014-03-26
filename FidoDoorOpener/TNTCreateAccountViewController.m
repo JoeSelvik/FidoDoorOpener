@@ -55,7 +55,9 @@
 
 #pragma mark - Button Actions
 
-- (IBAction)signupButton:(id)sender {
-    // send stuff to Scooby!
+
+- (IBAction)signupButton:(id)sender
+{
+    // Send fields to Scooby!
 }
 @end
