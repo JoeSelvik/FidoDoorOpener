@@ -44,3 +44,11 @@
 }
 
 @end
+
+// Because we do not have a real SSL cert yet for Scooby
+@implementation NSURLRequest(DataController)
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
+{
+    return YES;
+}
+@end

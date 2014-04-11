@@ -87,11 +87,11 @@
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
-    NSLog(@"JSON Data: %@", jsonData);
-    NSLog(@"JSON String: %@", jsonString);
+//    NSLog(@"JSON Data: %@", jsonData);
+//    NSLog(@"JSON String: %@", jsonString);
     
     // Send jsonString to Scooby and display the response in the NSLog!
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://fido-api.thenewtricks.com/latest/users/"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://localhost:8000/users/"]];
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:@"POST"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
