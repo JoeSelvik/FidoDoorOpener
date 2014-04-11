@@ -33,13 +33,16 @@
 {
     NSLog(@"Initializing Scooby Controller");
     
-    _scoobyURL = [NSURL URLWithString:@"https://localhost:8000/users/"];
+    //_scoobyURL = [NSURL URLWithString:@"https://localhost:8000/users/"];
+    //_scoobyURL = [NSURL URLWithString:@"https://1e1eda196bbf.a.passageway.io/users/"];
+    _scoobyURL = [NSURL URLWithString:@"https://localhost-mpz97ddbb621.runscope.net/users/"];
     
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     // Set additional config settings here
     [sessionConfig setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
+    [sessionConfig setHTTPAdditionalHeaders:@{@"Runscope-Request-Port": @"8000"}];
     
     _session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
     
