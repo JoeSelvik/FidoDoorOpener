@@ -7,6 +7,7 @@
 //
 
 #import "TNTCreateAccountViewController.h"
+#import "TNTScoobyController.h"
 
 @interface TNTCreateAccountViewController ()
 
@@ -87,19 +88,40 @@
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
+    // Send jsonString to Scooby and display the response in the NSLog
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:sc.scoobyURLString];
+    [request setHTTPMethod:@"PUT"];
+    
+    NSURLSessionUploadTask *uploadTask = [sc.session uploadTaskWithRequest:request
+                                                                  fromData:jsonData
+                                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                             NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
+                                                             
+                                                             if (!error && resp.statusCode == 201) {
+                                                                 NSLog(@"Created a user!");
+                                                             } else {
+                                                                 NSLog(@"Failed creating a user, error: %@", error);
+                                                             }
+                                                             
+                                                         }];
+    
+    [uploadTask resume];
+    
     // Send jsonString to Scooby and display the response in the NSLog!
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://localhost:8000/users/"]];
-    [request setHTTPBody:jsonData];
-    [request setHTTPMethod:@"POST"];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
-    NSData *urlData;
-    NSURLResponse *response;    // Use NSHTTPURLResponse, for headers, status code, ext
-    NSError *responseError;
-    
-    urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&responseError];
-    
-    NSLog(@"Response string: %@", [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]);
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://localhost:8000/users/"]];
+//    [request setHTTPBody:jsonData];
+//    [request setHTTPMethod:@"POST"];
+//    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    
+//    NSData *urlData;
+//    NSURLResponse *response;    // Use NSHTTPURLResponse, for headers, status code, ext
+//    NSError *responseError;
+//    
+//    urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&responseError];
+//    
+//    NSLog(@"Response string: %@", [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]);
 }
 
 #pragma mark - Validation Methods

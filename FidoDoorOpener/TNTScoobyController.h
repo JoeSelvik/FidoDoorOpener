@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol TNTScoobyControllerDelegate <NSObject>
+
+@optional
+
+@end
+
+
 @interface TNTScoobyController : NSObject
+
+@property NSURL *scoobyURLString;
+@property (strong, nonatomic) NSURLSession *session;
+
++ (TNTScoobyController *)sharedInstance;
+- (void)initScoobyCommunication;
 
 @end

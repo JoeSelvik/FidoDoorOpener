@@ -7,12 +7,17 @@
 //
 
 #import "TNTAppDelegate.h"
+#import "TNTScoobyController.h"
 
 @implementation TNTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    [sc initScoobyCommunication];
+    
     return YES;
 }
 							

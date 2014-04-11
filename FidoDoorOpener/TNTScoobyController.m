@@ -8,6 +8,12 @@
 
 #import "TNTScoobyController.h"
 
+@interface TNTScoobyController ()
+
+//@property (strong, nonatomic) NSURLSession *session;
+
+@end
+
 @implementation TNTScoobyController
 
 + (TNTScoobyController *)sharedInstance
@@ -25,10 +31,16 @@
 // Called when user sign into the app for the first time
 - (void)initScoobyCommunication
 {
+    _scoobyURLString = [NSURL URLWithString:@"https://localhost:8000/users/"];
+    
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
+    // Set additional config settings here
+    //[sessionConfig setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
+    
+    _session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
+    
 }
 
 @end
