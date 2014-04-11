@@ -17,7 +17,7 @@
 
 @interface TNTScoobyController : NSObject
 
-@property NSURL *scoobyURLString;
+@property NSURL *scoobyURL;
 @property (strong, nonatomic) NSURLSession *session;
 
 + (TNTScoobyController *)sharedInstance;

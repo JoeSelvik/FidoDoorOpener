@@ -91,8 +91,8 @@
     // Send jsonString to Scooby and display the response in the NSLog
     TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:sc.scoobyURLString];
-    [request setHTTPMethod:@"PUT"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:sc.scoobyURL];
+    [request setHTTPMethod:@"POST"];
     
     NSURLSessionUploadTask *uploadTask = [sc.session uploadTaskWithRequest:request
                                                                   fromData:jsonData
@@ -101,8 +101,10 @@
                                                              
                                                              if (!error && resp.statusCode == 201) {
                                                                  NSLog(@"Created a user!");
+                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
                                                              } else {
                                                                  NSLog(@"Failed creating a user, error: %@", error);
+                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
                                                              }
                                                              
                                                          }];

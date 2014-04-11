@@ -14,6 +14,7 @@
 
 @end
 
+
 @implementation TNTScoobyController
 
 + (TNTScoobyController *)sharedInstance
@@ -27,20 +28,33 @@
     return _sharedInstance;
 }
 
-
 // Called when user sign into the app for the first time
 - (void)initScoobyCommunication
 {
-    _scoobyURLString = [NSURL URLWithString:@"https://localhost:8000/users/"];
+    NSLog(@"Initializing Scooby Controller");
+    
+    _scoobyURL = [NSURL URLWithString:@"https://localhost:8000/users/"];
     
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     // Set additional config settings here
-    //[sessionConfig setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
+    [sessionConfig setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
     
     _session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
     
 }
+
+- (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
+ completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler
+{
+    completionHandler(NSURLSessionAuthChallengeUseCredential, [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]);
+}
+
+
+
+
+
+
 
 @end
