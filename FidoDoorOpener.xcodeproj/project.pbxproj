@@ -22,6 +22,7 @@
 		886CD35B18E0CB29002275D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 886CD35918E0CB29002275D6 /* InfoPlist.strings */; };
 		886CD35D18E0CB29002275D6 /* FidoDoorOpenerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CD35C18E0CB29002275D6 /* FidoDoorOpenerTests.m */; };
 		88DD526B18E23C3E00FF2760 /* TNTCreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DD526A18E23C3E00FF2760 /* TNTCreateAccountViewController.m */; };
+		88F70FCB18F85EE5005C5F0A /* TNTScoobyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F70FCA18F85EE5005C5F0A /* TNTScoobyController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		886CD35C18E0CB29002275D6 /* FidoDoorOpenerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FidoDoorOpenerTests.m; sourceTree = "<group>"; };
 		88DD526918E23C3E00FF2760 /* TNTCreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTCreateAccountViewController.h; sourceTree = "<group>"; };
 		88DD526A18E23C3E00FF2760 /* TNTCreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTCreateAccountViewController.m; sourceTree = "<group>"; };
+		88F70FC918F85EE5005C5F0A /* TNTScoobyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTScoobyController.h; sourceTree = "<group>"; };
+		88F70FCA18F85EE5005C5F0A /* TNTScoobyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTScoobyController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				886CD34318E0CB29002275D6 /* Main.storyboard */,
 				88DD526918E23C3E00FF2760 /* TNTCreateAccountViewController.h */,
 				88DD526A18E23C3E00FF2760 /* TNTCreateAccountViewController.m */,
+				88F70FC918F85EE5005C5F0A /* TNTScoobyController.h */,
+				88F70FCA18F85EE5005C5F0A /* TNTScoobyController.m */,
 				886CD34618E0CB29002275D6 /* TNTLaunchViewController.h */,
 				886CD34718E0CB29002275D6 /* TNTLaunchViewController.m */,
 				886CD34918E0CB29002275D6 /* Images.xcassets */,
@@ -257,6 +262,7 @@
 			files = (
 				886CD33E18E0CB29002275D6 /* main.m in Sources */,
 				886CD34218E0CB29002275D6 /* TNTAppDelegate.m in Sources */,
+				88F70FCB18F85EE5005C5F0A /* TNTScoobyController.m in Sources */,
 				88DD526B18E23C3E00FF2760 /* TNTCreateAccountViewController.m in Sources */,
 				886CD34818E0CB29002275D6 /* TNTLaunchViewController.m in Sources */,
 			);

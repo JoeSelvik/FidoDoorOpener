@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.    
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,9 +87,6 @@
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
-//    NSLog(@"JSON Data: %@", jsonData);
-//    NSLog(@"JSON String: %@", jsonString);
-    
     // Send jsonString to Scooby and display the response in the NSLog!
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://localhost:8000/users/"]];
     [request setHTTPBody:jsonData];
@@ -97,7 +94,7 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     NSData *urlData;
-    NSURLResponse *response;    // Use NSHTTPURLResponse?
+    NSURLResponse *response;    // Use NSHTTPURLResponse, for headers, status code, ext
     NSError *responseError;
     
     urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&responseError];
