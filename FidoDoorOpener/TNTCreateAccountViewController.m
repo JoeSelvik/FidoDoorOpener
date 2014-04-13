@@ -7,6 +7,7 @@
 //
 
 #import "TNTCreateAccountViewController.h"
+#import "TNTScoobyController.h"
 
 @interface TNTCreateAccountViewController ()
 
@@ -14,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (weak, nonatomic) IBOutlet UITextField *fullnameInput;
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
+
+@property BOOL didComplete;
 
 - (IBAction)signupButton:(id)sender;
 
@@ -34,6 +37,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _didComplete = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +70,7 @@
                                    delegate:nil
                           cancelButtonTitle:@"Close"
                           otherButtonTitles: nil] show];
+        return;
     }
     
     // Put text from text fields into a dictionary
@@ -87,22 +92,46 @@
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
-//    NSLog(@"JSON Data: %@", jsonData);
-//    NSLog(@"JSON String: %@", jsonString);
     
-    // Send jsonString to Scooby and display the response in the NSLog!
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://localhost:8000/users/"]];
-    [request setHTTPBody:jsonData];
+    // Send jsonString to Scooby and display the response in the NSLog
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    
+    NSURL *createUserURL = [NSURL URLWithString:@"users/" relativeToURL:sc.scoobyURL];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createUserURL];
     [request setHTTPMethod:@"POST"];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    NSData *urlData;
-    NSURLResponse *response;    // Use NSHTTPURLResponse?
-    NSError *responseError;
+    NSURLSessionUploadTask *uploadTask = [sc.session uploadTaskWithRequest:request
+                                                                  fromData:jsonData
+                                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                             NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
+                                                             
+                                                             if (!error && resp.statusCode == 201) {
+                                                                 NSLog(@"Created a user!");
+                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 self.didComplete = YES;
+                                                                 
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [self.navigationController popToRootViewControllerAnimated:TRUE];
+                                                                 });
+                                                                 
+                                                             } else {
+                                                                 NSLog(@"Failed creating a user, error: %@", error);
+                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 self.didComplete = NO;
+                                                                 
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                 message:@"Could not create a new User."
+                                                                                                delegate:nil
+                                                                                       cancelButtonTitle:@"Close"
+                                                                                       otherButtonTitles: nil] show];
+                                                                 });
+                                                            }
+                                                             
+                                            }];
     
-    urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&responseError];
-    
-    NSLog(@"Response string: %@", [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]);
+    [uploadTask resume];
 }
 
 #pragma mark - Validation Methods
@@ -126,8 +155,5 @@
 {
     return [self.emailInput.text length];
 }
-
-//if (![self validateUserName] || ![self validateUserPhoneNumber] || ![self validateUserX500])
-
 
 @end

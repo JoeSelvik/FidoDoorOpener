@@ -7,12 +7,17 @@
 //
 
 #import "TNTAppDelegate.h"
+#import "TNTScoobyController.h"
 
 @implementation TNTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    [sc initScoobyCommunication];
+    
     return YES;
 }
 							
@@ -43,12 +48,4 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-@end
-
-// Because we do not have a real SSL cert yet for Scooby
-@implementation NSURLRequest(DataController)
-+ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
-{
-    return YES;
-}
 @end
