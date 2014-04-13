@@ -88,10 +88,13 @@
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
+    
     // Send jsonString to Scooby and display the response in the NSLog
     TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:sc.scoobyURL];
+    NSURL *createUserURL = [NSURL URLWithString:@"users/" relativeToURL:sc.scoobyURL];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createUserURL];
     [request setHTTPMethod:@"POST"];
     
     NSURLSessionUploadTask *uploadTask = [sc.session uploadTaskWithRequest:request
@@ -110,20 +113,6 @@
                                                          }];
     
     [uploadTask resume];
-    
-    // Send jsonString to Scooby and display the response in the NSLog!
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://localhost:8000/users/"]];
-//    [request setHTTPBody:jsonData];
-//    [request setHTTPMethod:@"POST"];
-//    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    
-//    NSData *urlData;
-//    NSURLResponse *response;    // Use NSHTTPURLResponse, for headers, status code, ext
-//    NSError *responseError;
-//    
-//    urlData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&responseError];
-//    
-//    NSLog(@"Response string: %@", [[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding]);
 }
 
 #pragma mark - Validation Methods
@@ -147,8 +136,5 @@
 {
     return [self.emailInput.text length];
 }
-
-//if (![self validateUserName] || ![self validateUserPhoneNumber] || ![self validateUserX500])
-
 
 @end

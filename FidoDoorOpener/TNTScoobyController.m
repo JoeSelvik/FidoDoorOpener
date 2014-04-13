@@ -33,21 +33,20 @@
 {
     NSLog(@"Initializing Scooby Controller");
     
-    //_scoobyURL = [NSURL URLWithString:@"https://localhost:8000/users/"];
-    //_scoobyURL = [NSURL URLWithString:@"https://1e1eda196bbf.a.passageway.io/users/"];
-    _scoobyURL = [NSURL URLWithString:@"https://localhost-mpz97ddbb621.runscope.net/users/"];
+    _scoobyURL = [NSURL URLWithString:@"https://localhost:8000/"];
+    //_scoobyURL = [NSURL URLWithString:@"https://2a6ca05a2df.a.passageway.io"];
     
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     // Set additional config settings here
     [sessionConfig setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
-    [sessionConfig setHTTPAdditionalHeaders:@{@"Runscope-Request-Port": @"8000"}];
+    //[sessionConfig setHTTPAdditionalHeaders:@{@"Runscope-Request-Port": @"8000"}];
     
     _session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
-    
 }
 
+// TODO - handle this properly
 - (void)URLSession:(NSURLSession *)session didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
  completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler
 {
