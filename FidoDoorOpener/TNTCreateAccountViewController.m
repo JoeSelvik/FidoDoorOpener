@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *fullnameInput;
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 
+@property BOOL didComplete;
+
 - (IBAction)signupButton:(id)sender;
 
 @end
@@ -34,7 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.    
+    // Do any additional setup after loading the view.
+    _didComplete = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +70,7 @@
                                    delegate:nil
                           cancelButtonTitle:@"Close"
                           otherButtonTitles: nil] show];
+        return;
     }
     
     // Put text from text fields into a dictionary
@@ -105,12 +109,27 @@
                                                              if (!error && resp.statusCode == 201) {
                                                                  NSLog(@"Created a user!");
                                                                  NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 self.didComplete = YES;
+                                                                 
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [self.navigationController popToRootViewControllerAnimated:TRUE];
+                                                                 });
+                                                                 
                                                              } else {
                                                                  NSLog(@"Failed creating a user, error: %@", error);
                                                                  NSLog(@"Code: %ld", (long)resp.statusCode);
-                                                             }
+                                                                 self.didComplete = NO;
+                                                                 
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                 message:@"Could not create a new User."
+                                                                                                delegate:nil
+                                                                                       cancelButtonTitle:@"Close"
+                                                                                       otherButtonTitles: nil] show];
+                                                                 });
+                                                            }
                                                              
-                                                         }];
+                                            }];
     
     [uploadTask resume];
 }
