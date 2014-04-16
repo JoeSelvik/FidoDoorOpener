@@ -35,6 +35,24 @@
             </objects>
             <point key="canvasLocation" x="924" y="202"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="PMS-e0-iWx">
+            <objects>
+                <viewController id="Lz0-9u-s9g" customClass="TNTSignInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t6g-9w-aM6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tlo-g4-17t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v24-S4-47n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LwO-E2-a0c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1474" y="451"/>
+        </scene>
         <!--Create Account View Controller - Create Account-->
         <scene sceneID="4lt-0k-moG">
             <objects>
