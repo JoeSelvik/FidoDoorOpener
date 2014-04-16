@@ -101,7 +101,7 @@
                                                              
                                                              if (!error && resp.statusCode == 201) {
                                                                  NSLog(@"Created a Session!");
-                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 NSLog(@"Resp: %@", resp);
                                                                  NSLog(@"Cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
