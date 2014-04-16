@@ -89,9 +89,9 @@
     // Send jsonString to Scooby and display the response in the NSLog
     TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
-    NSURL *createUserURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
+    NSURL *createSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createUserURL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createSessionURL];
     [request setHTTPMethod:@"POST"];
     
     NSURLSessionUploadTask *uploadTask = [sc.session uploadTaskWithRequest:request
@@ -105,7 +105,7 @@
                                                                  NSLog(@"Response: %@", resp);
                                                                  
                                                                  // Get cookie from response header
-                                                                 
+                                                                 [NSHTTPCookie cookiesWithResponseHeaderFields:<#(NSDictionary *)#> forURL:<#(NSURL *)#>];
                                                                  
                                                                  [sc.cookieJar setCookie:];
                                                                  
