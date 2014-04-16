@@ -102,6 +102,12 @@
                                                              if (!error && resp.statusCode == 201) {
                                                                  NSLog(@"Created a Session!");
                                                                  NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 NSLog(@"Response: %@", resp);
+                                                                 
+                                                                 // Get cookie from response header
+                                                                 
+                                                                 
+                                                                 [sc.cookieJar setCookie:];
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];

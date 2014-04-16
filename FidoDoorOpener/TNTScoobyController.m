@@ -44,6 +44,10 @@
     //[sessionConfig setHTTPAdditionalHeaders:@{@"Runscope-Request-Port": @"8000"}];
     
     _session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
+    
+    _cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+    
 }
 
 // TODO - handle this properly
