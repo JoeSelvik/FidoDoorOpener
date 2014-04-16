@@ -16,8 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *fullnameInput;
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 
-@property BOOL didComplete;
-
 - (IBAction)signupButton:(id)sender;
 
 @end
@@ -37,7 +35,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _didComplete = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,7 +106,6 @@
                                                              if (!error && resp.statusCode == 201) {
                                                                  NSLog(@"Created a user!");
                                                                  NSLog(@"Code: %ld", (long)resp.statusCode);
-                                                                 self.didComplete = YES;
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];
@@ -118,7 +114,6 @@
                                                              } else {
                                                                  NSLog(@"Failed creating a user, error: %@", error);
                                                                  NSLog(@"Code: %ld", (long)resp.statusCode);
-                                                                 self.didComplete = NO;
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [[[UIAlertView alloc] initWithTitle:@"Error"
