@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Joe Selvik. All rights reserved.
 //
 
+#import "TNTScoobyController.h"
 #import "TNTSignInViewController.h"
 
 @interface TNTSignInViewController ()
@@ -56,11 +57,87 @@
 
 - (IBAction)signupButton:(id)sender
 {
+    // Make sure all text fields have valid input
+    if (![self validateUsernameInput] || ![self validatePasswordInput]) {
+        // Show an alert prompting user to fill all fields
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"Please enter something in each text field."
+                                   delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles: nil] show];
+        return;
+    }
     
+    // Put text from text fields into a dictionary
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
+                              self.usernameInput.text, @"username",
+                              self.passwordInput.text, @"password",
+                              nil];
+    
+    NSString *jsonString;
+    NSError *jsonError;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo options:NSJSONWritingPrettyPrinted error:&jsonError];
+    
+    if (!jsonData) {
+        NSLog(@"Got a jsonError: %@", jsonError);
+    } else {
+        // TODO - check which encoding to use
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    
+    // Send jsonString to Scooby and display the response in the NSLog
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    
+    NSURL *createUserURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createUserURL];
+    [request setHTTPMethod:@"POST"];
+    
+    NSURLSessionUploadTask *uploadTask = [sc.session uploadTaskWithRequest:request
+                                                                  fromData:jsonData
+                                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                             NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
+                                                             
+                                                             if (!error && resp.statusCode == 201) {
+                                                                 NSLog(@"Created a Session!");
+                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [self.navigationController popToRootViewControllerAnimated:TRUE];
+                                                                 });
+                                                                 
+                                                             } else {
+                                                                 NSLog(@"Failed creating a user, error: %@", error);
+                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                 message:@"Could not create a new Session."
+                                                                                                delegate:nil
+                                                                                       cancelButtonTitle:@"Close"
+                                                                                       otherButtonTitles: nil] show];
+                                                                 });
+                                                             }
+                                                             
+                                                         }];
+    
+    [uploadTask resume];
+
 }
 
 
+#pragma mark - Validation Methods
 
+- (BOOL)validateUsernameInput
+{
+    return [self.usernameInput.text length];
+}
+
+- (BOOL)validatePasswordInput
+{
+    return [self.passwordInput.text length];
+}
 
 
 @end
