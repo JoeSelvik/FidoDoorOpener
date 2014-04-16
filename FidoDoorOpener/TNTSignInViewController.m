@@ -105,9 +105,7 @@
                                                                  NSLog(@"Response: %@", resp);
                                                                  
                                                                  // Get cookie from response header
-                                                                 [NSHTTPCookie cookiesWithResponseHeaderFields:<#(NSDictionary *)#> forURL:<#(NSURL *)#>];
-                                                                 
-                                                                 [sc.cookieJar setCookie:];
+                                                                 NSLog(@"Cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];
