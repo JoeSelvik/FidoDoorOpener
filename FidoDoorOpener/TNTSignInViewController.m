@@ -10,6 +10,11 @@
 
 @interface TNTSignInViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *usernameInput;
+@property (weak, nonatomic) IBOutlet UITextField *passwordInput;
+
+- (IBAction)signupButton:(id)sender;
+
 @end
 
 @implementation TNTSignInViewController
@@ -45,5 +50,17 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark - Button Actions
+
+- (IBAction)signupButton:(id)sender
+{
+    
+}
+
+
+
+
 
 @end
