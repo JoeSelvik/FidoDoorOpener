@@ -33,8 +33,7 @@
 {
     NSLog(@"Initializing Scooby Controller");
     
-    _scoobyURL = [NSURL URLWithString:@"https://localhost:8000/"];
-    //_scoobyURL = [NSURL URLWithString:@"https://2a6ca05a2df.a.passageway.io"];
+    _scoobyURL = [NSURL URLWithString:@"http://localhost:8000/"];
     
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
