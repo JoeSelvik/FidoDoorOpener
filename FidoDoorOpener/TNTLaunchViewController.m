@@ -49,31 +49,31 @@
         NSLog(@"Deleted cookie on local phone");
         
         
-//        // Also need to sign out the user on scooby
-//        NSURL *createSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
-//        
-//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createSessionURL];
-//        [request setHTTPMethod:@"DELETE"];
-//        
-//        NSURLSessionTask *dataTask = [sc.session dataTaskWithRequest:request
-//                                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//                                                       NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
-//                          
-//                                                       if (!error && resp.statusCode == 204) {
-//                                                           NSLog(@"Deleted session on scooby");
-//                                                       } else {
-//                                                           dispatch_async(dispatch_get_main_queue(), ^{
-//                                                               [[[UIAlertView alloc] initWithTitle:@"Error"
-//                                                                                           message:@"Could not delete session on Scooby."
-//                                                                                          delegate:nil
-//                                                                                 cancelButtonTitle:@"Close"
-//                                                                                 otherButtonTitles: nil] show];
-//                                                           });
-//                                                       }
-//                          
-//                                                   }];
-//        
-//        [dataTask resume];
+        // Also need to sign out the user on scooby
+        NSURL *createSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createSessionURL];
+        [request setHTTPMethod:@"DELETE"];
+        
+        NSURLSessionTask *dataTask = [sc.session dataTaskWithRequest:request
+                                                   completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                       NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
+                          
+                                                       if (!error && resp.statusCode == 204) {
+                                                           NSLog(@"Deleted session on scooby");
+                                                       } else {
+                                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                                               [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                           message:@"Could not delete session on Scooby."
+                                                                                          delegate:nil
+                                                                                 cancelButtonTitle:@"Close"
+                                                                                 otherButtonTitles: nil] show];
+                                                           });
+                                                       }
+                          
+                                                   }];
+        
+        [dataTask resume];
         
     } else {
         NSLog(@"No user signed on.");

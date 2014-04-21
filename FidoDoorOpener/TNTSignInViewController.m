@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 
-- (IBAction)signupButton:(id)sender;
+- (IBAction)signInButton:(id)sender;
 
 @end
 
@@ -55,7 +55,7 @@
 
 #pragma mark - Button Actions
 
-- (IBAction)signupButton:(id)sender
+- (IBAction)signInButton:(id)sender
 {
     // Make sure all text fields have valid input
     if (![self validateUsernameInput] || ![self validatePasswordInput]) {

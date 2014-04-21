@@ -86,7 +86,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="signupButton:" destination="Lz0-9u-s9g" eventType="touchUpInside" id="HpA-gj-NbX"/>
+                                    <action selector="signInButton:" destination="Lz0-9u-s9g" eventType="touchUpInside" id="iFA-VX-yEK"/>
                                 </connections>
                             </button>
                         </subviews>
