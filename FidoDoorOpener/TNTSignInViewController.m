@@ -104,6 +104,14 @@
                                                                  NSLog(@"Resp: %@", resp);
                                                                  //NSLog(@"Cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
                                                                  
+                                                                 // print body
+                                                                 NSError *jerror;
+                                                                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                                     options:kNilOptions
+                                                                                                                       error:&jerror];
+                                                                 NSLog(@"json returned body: %@", json);
+                                                                 
+                                                                 
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];
                                                                  });
