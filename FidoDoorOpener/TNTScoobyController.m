@@ -33,7 +33,8 @@
 {
     NSLog(@"Initializing Scooby Controller");
     
-    _scoobyURL = [NSURL URLWithString:@"http://localhost:8000/"];
+    //_scoobyURL = [NSURL URLWithString:@"http://localhost:8000/"];
+    _scoobyURL = [NSURL URLWithString:@"https://fido-api.thenewtricks.com/latest/"];
     
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];

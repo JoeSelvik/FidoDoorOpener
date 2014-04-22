@@ -82,6 +82,11 @@
         
     } else {
         NSLog(@"No user signed on.");
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:@"No user signed on!"
+                                   delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles: nil] show];
     }
     
     
