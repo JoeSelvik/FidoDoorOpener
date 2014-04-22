@@ -73,6 +73,16 @@
     [self.defaults setObject:sessionId forKey:@"sessionId"];
 }
 
+- (void)removeUsername
+{
+    [self.defaults removeObjectForKey:@"username"];
+}
+
+- (void)removeSessionId
+{
+    [self.defaults removeObjectForKey:@"sessionId"];
+}
+
 
 #pragma mark - User Information
 

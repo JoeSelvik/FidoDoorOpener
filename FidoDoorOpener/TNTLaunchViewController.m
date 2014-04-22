@@ -23,7 +23,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    NSLog(@"Launch VC");
     NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
+    NSLog(@"Username: %@, sessionId: %@", [sc username], [sc sessionId]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,21 +42,15 @@
     NSArray *cookieJar = [sc.cookieJar cookies];
     
     if ([cookieJar count]) {
-        NSLog(@"User %@ signed in with a cookie!", [sc username]);
-        NSLog(@"User id: %@", [sc sessionId]);
+        NSLog(@"User %@ signed in with a cookie! SessionId: %@", [sc username], [sc sessionId]);
         
         // Sign out the user by deleting the cookie
-        //NSLog(@"cookieJar: %@", cookieJar);
         [sc.cookieJar deleteCookie:[cookieJar objectAtIndex:0]];
-        
         NSLog(@"Deleted cookie on local phone");
-        
         
         // Also need to sign out the user on scooby
         NSURL *deleteSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
         NSURL *deleteSingleSessionURL = [NSURL URLWithString:[sc sessionId] relativeToURL:deleteSessionURL];
-        
-        NSLog(@"Delete Single Session url: %@", deleteSingleSessionURL);
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:deleteSingleSessionURL];
         [request setHTTPMethod:@"DELETE"];
@@ -63,10 +59,13 @@
                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                        NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
                                                        
-                                                       NSLog(@"Resp: %@", resp);
-                                                       
                                                        if (!error && resp.statusCode == 204) {
-                                                           NSLog(@"Deleted session on scooby");
+                                                           NSLog(@"Deleted session on scooby and sessionId/username from phone defaults.");
+                                                           
+                                                           // Get rid of the username and sessionId in the phones user defaults
+                                                           [sc removeUsername];
+                                                           [sc removeSessionId];
+                                                           
                                                        } else {
                                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                                [[[UIAlertView alloc] initWithTitle:@"Error"

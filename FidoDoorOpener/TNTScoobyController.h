@@ -28,6 +28,9 @@
 - (void)setUsername:(NSString *)username;
 - (void)setSessionId:(NSString *)sessionId;
 
+- (void)removeUsername;
+- (void)removeSessionId;
+
 - (NSString *)username;
 - (NSString *)sessionId;
 

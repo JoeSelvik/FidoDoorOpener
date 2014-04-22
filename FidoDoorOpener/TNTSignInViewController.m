@@ -33,6 +33,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    NSLog(@"Signin VC");
+    NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
+    NSLog(@"Username: %@, sessionId: %@", [sc username], [sc sessionId]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +62,19 @@
 
 - (IBAction)signInButton:(id)sender
 {
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    
+    // If a user is already signed on they cannot sign into a new account
+    if ([[sc.cookieJar cookies] count]) {
+        NSString *errorMsg = [[NSString alloc] initWithFormat:@"You are already signed on as %@. Please logout before signing on again.", [sc username]];
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:errorMsg
+                                   delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles: nil] show];
+        return;
+    }
+    
     // Make sure all text fields have valid input
     if (![self validateUsernameInput] || ![self validatePasswordInput]) {
         // Show an alert prompting user to fill all fields
@@ -87,7 +105,6 @@
     
     
     // Send jsonString to Scooby and display the response in the NSLog
-    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
     NSURL *createSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
     
@@ -107,7 +124,7 @@
                                                                  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                                                                                      options:kNilOptions
                                                                                                                        error:&jerror];
-                                                                 NSLog(@"json returned body: %@", json);
+                                                                 //NSLog(@"json returned body: %@", json);
                                                                  [sc setUsername:self.usernameInput.text];
                                                                  [sc setSessionId:[json objectForKey:@"id"]];
                                                                  
