@@ -20,7 +20,18 @@
 @property NSURL *scoobyURL;
 @property (strong, nonatomic) NSURLSession *session;
 
+@property (strong, nonatomic) NSHTTPCookieStorage *cookieJar;
+
 + (TNTScoobyController *)sharedInstance;
 - (void)initScoobyCommunication;
+
+- (void)setUsername:(NSString *)username;
+- (void)setSessionId:(NSString *)sessionId;
+
+- (void)removeUsername;
+- (void)removeSessionId;
+
+- (NSString *)username;
+- (NSString *)sessionId;
 
 @end

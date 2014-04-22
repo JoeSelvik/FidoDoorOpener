@@ -1,26 +1,24 @@
 //
-//  TNTCreateAccountViewController.m
+//  TNTSignInViewController.m
 //  FidoDoorOpener
 //
-//  Created by Joe Selvik on 3/25/14.
+//  Created by Joe Selvik on 4/15/14.
 //  Copyright (c) 2014 Joe Selvik. All rights reserved.
 //
 
-#import "TNTCreateAccountViewController.h"
 #import "TNTScoobyController.h"
+#import "TNTSignInViewController.h"
 
-@interface TNTCreateAccountViewController ()
+@interface TNTSignInViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
-@property (weak, nonatomic) IBOutlet UITextField *fullnameInput;
-@property (weak, nonatomic) IBOutlet UITextField *emailInput;
 
-- (IBAction)signupButton:(id)sender;
+- (IBAction)signInButton:(id)sender;
 
 @end
 
-@implementation TNTCreateAccountViewController
+@implementation TNTSignInViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +33,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    NSLog(@"Signin VC");
+    NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
+    NSLog(@"Username: %@, sessionId: %@", [sc username], [sc sessionId]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,13 +57,26 @@
 }
 */
 
+
 #pragma mark - Button Actions
 
-// When the 'Sign Up' button is pressed send a request to Scooby to create a new User
-- (IBAction)signupButton:(id)sender
+- (IBAction)signInButton:(id)sender
 {
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    
+    // If a user is already signed on they cannot sign into a new account
+    if ([[sc.cookieJar cookies] count]) {
+        NSString *errorMsg = [[NSString alloc] initWithFormat:@"You are already signed on as %@. Please logout before signing on again.", [sc username]];
+        [[[UIAlertView alloc] initWithTitle:@"Error"
+                                    message:errorMsg
+                                   delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles: nil] show];
+        return;
+    }
+    
     // Make sure all text fields have valid input
-    if (![self validateUsernameInput] || ![self validatePasswordInput] || ![self validateFullnameInput] || ![self validateEmailInput]) {
+    if (![self validateUsernameInput] || ![self validatePasswordInput]) {
         // Show an alert prompting user to fill all fields
         [[[UIAlertView alloc] initWithTitle:@"Error"
                                     message:@"Please enter something in each text field."
@@ -74,8 +90,6 @@
     NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:
                               self.usernameInput.text, @"username",
                               self.passwordInput.text, @"password",
-                              self.fullnameInput.text, @"full_name",
-                              self.emailInput.text, @"email",
                               nil];
     
     NSString *jsonString;
@@ -91,11 +105,10 @@
     
     
     // Send jsonString to Scooby and display the response in the NSLog
-    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
-    NSURL *createUserURL = [NSURL URLWithString:@"users/" relativeToURL:sc.scoobyURL];
+    NSURL *createSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createUserURL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createSessionURL];
     [request setHTTPMethod:@"POST"];
     
     NSURLSessionUploadTask *uploadTask = [sc.session uploadTaskWithRequest:request
@@ -104,31 +117,42 @@
                                                              NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
                                                              
                                                              if (!error && resp.statusCode == 201) {
-                                                                 NSLog(@"Created a user!");
-                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
-                                                                 NSLog(@"Cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
+                                                                 NSLog(@"Created a Session!");
+                                                                 
+                                                                 // print body
+                                                                 NSError *jerror;
+                                                                 NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                                     options:kNilOptions
+                                                                                                                       error:&jerror];
+                                                                 //NSLog(@"json returned body: %@", json);
+                                                                 [sc setUsername:self.usernameInput.text];
+                                                                 [sc setSessionId:[json objectForKey:@"id"]];
+                                                                 
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];
                                                                  });
                                                                  
                                                              } else {
-                                                                 NSLog(@"Failed creating a user, error: %@", error);
+                                                                 NSLog(@"Failed creating a session, error: %@", error);
                                                                  NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 NSString *errorMsg = [[NSString alloc] initWithFormat:@"Could not sign on. Code: %ld", (long)resp.statusCode];
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [[[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                 message:@"Could not create a new User."
+                                                                                                 message:errorMsg
                                                                                                 delegate:nil
                                                                                        cancelButtonTitle:@"Close"
                                                                                        otherButtonTitles: nil] show];
                                                                  });
-                                                            }
+                                                             }
                                                              
-                                            }];
+                                                         }];
     
     [uploadTask resume];
+
 }
+
 
 #pragma mark - Validation Methods
 
@@ -142,14 +166,5 @@
     return [self.passwordInput.text length];
 }
 
-- (BOOL)validateFullnameInput
-{
-    return [self.fullnameInput.text length];
-}
-
-- (BOOL)validateEmailInput
-{
-    return [self.emailInput.text length];
-}
 
 @end

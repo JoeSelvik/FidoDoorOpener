@@ -10,7 +10,7 @@
 
 @interface TNTScoobyController ()
 
-//@property (strong, nonatomic) NSURLSession *session;
+@property (strong, nonatomic) NSUserDefaults *defaults;
 
 @end
 
@@ -33,8 +33,7 @@
 {
     NSLog(@"Initializing Scooby Controller");
     
-    _scoobyURL = [NSURL URLWithString:@"https://localhost:8000/"];
-    //_scoobyURL = [NSURL URLWithString:@"https://2a6ca05a2df.a.passageway.io"];
+    _scoobyURL = [NSURL URLWithString:@"http://localhost:8000/"];
     
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -44,6 +43,14 @@
     //[sessionConfig setHTTPAdditionalHeaders:@{@"Runscope-Request-Port": @"8000"}];
     
     _session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
+    
+    _cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
+    
+    
+    // Set up phone defaults
+    _defaults = [NSUserDefaults standardUserDefaults];
+    
 }
 
 // TODO - handle this properly
@@ -54,9 +61,40 @@
 }
 
 
+#pragma mark - Sessions
+
+- (void)setUsername:(NSString *)username
+{
+    [self.defaults setObject:username forKey:@"username"];
+}
+
+- (void)setSessionId:(NSString *)sessionId
+{
+    [self.defaults setObject:sessionId forKey:@"sessionId"];
+}
+
+- (void)removeUsername
+{
+    [self.defaults removeObjectForKey:@"username"];
+}
+
+- (void)removeSessionId
+{
+    [self.defaults removeObjectForKey:@"sessionId"];
+}
 
 
+#pragma mark - User Information
 
+- (NSString *)username
+{
+    return [self.defaults stringForKey:@"username"];
+}
+
+- (NSString *)sessionId
+{
+    return [self.defaults stringForKey:@"sessionId"];
+}
 
 
 @end
