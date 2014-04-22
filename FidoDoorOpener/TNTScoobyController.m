@@ -10,7 +10,7 @@
 
 @interface TNTScoobyController ()
 
-//@property (strong, nonatomic) NSURLSession *session;
+@property (strong, nonatomic) NSUserDefaults *defaults;
 
 @end
 
@@ -47,6 +47,10 @@
     _cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     
+    
+    // Set up phone defaults
+    _defaults = [NSUserDefaults standardUserDefaults];
+    
 }
 
 // TODO - handle this properly
@@ -57,9 +61,30 @@
 }
 
 
+#pragma mark - Sessions
+
+- (void)setUsername:(NSString *)username
+{
+    [self.defaults setObject:username forKey:@"username"];
+}
+
+- (void)setSessionId:(NSString *)sessionId
+{
+    [self.defaults setObject:sessionId forKey:@"sessionId"];
+}
 
 
+#pragma mark - User Information
 
+- (NSString *)username
+{
+    return [self.defaults stringForKey:@"username"];
+}
+
+- (NSString *)sessionId
+{
+    return [self.defaults stringForKey:@"sessionId"];
+}
 
 
 @end

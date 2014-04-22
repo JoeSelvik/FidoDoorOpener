@@ -40,25 +40,31 @@
     NSArray *cookieJar = [sc.cookieJar cookies];
     
     if ([cookieJar count]) {
-        NSLog(@"There is a usersigned on with a cookie!");
+        NSLog(@"User %@ signed in with a cookie!", [sc username]);
+        NSLog(@"User id: %@", [sc sessionId]);
         
         // Sign out the user by deleting the cookie
-        NSLog(@"cookieJar: %@", cookieJar);
+        //NSLog(@"cookieJar: %@", cookieJar);
         [sc.cookieJar deleteCookie:[cookieJar objectAtIndex:0]];
         
         NSLog(@"Deleted cookie on local phone");
         
         
         // Also need to sign out the user on scooby
-        NSURL *createSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
+        NSURL *deleteSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
+        NSURL *deleteSingleSessionURL = [NSURL URLWithString:[sc sessionId] relativeToURL:deleteSessionURL];
         
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createSessionURL];
+        NSLog(@"Delete Single Session url: %@", deleteSingleSessionURL);
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:deleteSingleSessionURL];
         [request setHTTPMethod:@"DELETE"];
         
         NSURLSessionTask *dataTask = [sc.session dataTaskWithRequest:request
                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                        NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
-                          
+                                                       
+                                                       NSLog(@"Resp: %@", resp);
+                                                       
                                                        if (!error && resp.statusCode == 204) {
                                                            NSLog(@"Deleted session on scooby");
                                                        } else {

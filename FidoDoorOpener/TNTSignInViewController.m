@@ -101,8 +101,6 @@
                                                              
                                                              if (!error && resp.statusCode == 201) {
                                                                  NSLog(@"Created a Session!");
-                                                                 NSLog(@"Resp: %@", resp);
-                                                                 //NSLog(@"Cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
                                                                  
                                                                  // print body
                                                                  NSError *jerror;
@@ -110,6 +108,8 @@
                                                                                                                      options:kNilOptions
                                                                                                                        error:&jerror];
                                                                  NSLog(@"json returned body: %@", json);
+                                                                 [sc setUsername:self.usernameInput.text];
+                                                                 [sc setSessionId:[json objectForKey:@"id"]];
                                                                  
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{

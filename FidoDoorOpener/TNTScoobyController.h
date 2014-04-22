@@ -25,4 +25,10 @@
 + (TNTScoobyController *)sharedInstance;
 - (void)initScoobyCommunication;
 
+- (void)setUsername:(NSString *)username;
+- (void)setSessionId:(NSString *)sessionId;
+
+- (NSString *)username;
+- (NSString *)sessionId;
+
 @end
