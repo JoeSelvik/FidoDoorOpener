@@ -134,12 +134,13 @@
                                                                  });
                                                                  
                                                              } else {
-                                                                 NSLog(@"Failed creating a user, error: %@", error);
+                                                                 NSLog(@"Failed creating a session, error: %@", error);
                                                                  NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 NSString *errorMsg = [[NSString alloc] initWithFormat:@"Could not sign on. Code: %ld", (long)resp.statusCode];
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [[[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                 message:@"Could not create a new Session."
+                                                                                                 message:errorMsg
                                                                                                 delegate:nil
                                                                                        cancelButtonTitle:@"Close"
                                                                                        otherButtonTitles: nil] show];
