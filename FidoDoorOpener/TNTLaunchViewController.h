@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TNTLaunchViewController : UIViewController
-
-- (void)setMyNameLabel:(NSString *)fullname;
+@interface TNTLaunchViewController : UIViewController <TNTSignInDelegate>
 
 @end

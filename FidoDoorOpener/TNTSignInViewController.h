@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TNTSignInDelegate;
+
+
 @interface TNTSignInViewController : UIViewController
+
+@property (nonatomic) id<TNTSignInDelegate> delegate;
+
+@end
+
+@protocol TNTSignInDelegate <NSObject>
+
+- (void)setMyNameLabel:(NSString *)fullname;
 
 @end

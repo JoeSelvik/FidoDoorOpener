@@ -14,7 +14,6 @@
 
 @end
 
-
 @interface TNTScoobyController : NSObject
 
 @property NSURL *scoobyURL;
