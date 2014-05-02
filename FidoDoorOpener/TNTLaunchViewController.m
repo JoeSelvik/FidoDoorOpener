@@ -59,7 +59,7 @@
     TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
     self.nameLabel.text = [sc username];
-    //[self.nameLabel setNeedsDisplay];
+    [self.nameLabel setNeedsDisplay];
     [self.nameLabel reloadInputViews];
 }
 

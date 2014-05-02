@@ -135,7 +135,7 @@
                                                                  
                                                                  // call method to update uilabel
                                                                  TNTLaunchViewController *launchVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"launchViewController"];
-                                                                 [launchVC setMyNameLabel:[json objectForKey:@"full_name"]];
+                                                                 [launchVC setMyNameLabel:[sc username]];
                                                                  
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
