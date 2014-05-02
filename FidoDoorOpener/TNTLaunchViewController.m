@@ -12,6 +12,7 @@
 @interface TNTLaunchViewController ()
 
 - (IBAction)signOut:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *doge;
 
 @end
 
@@ -26,6 +27,12 @@
     NSLog(@"Launch VC");
     NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
     NSLog(@"Username: %@, sessionId: %@", [sc username], [sc sessionId]);
+    
+    // Control the Doge
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dogeTapped:)];
+    _doge.userInteractionEnabled = YES;
+    [_doge addGestureRecognizer:tap];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,6 +40,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)dogeTapped:(UITapGestureRecognizer *) gestureRecognizer
+{
+    int rand = (arc4random() % 4) + 2;
+    NSString *dogeName = [NSString stringWithFormat:@"doge%d.png", rand];
+    
+    UIImage *image = [UIImage imageNamed:dogeName];
+    [self.doge setImage:image];
+}
+
+
+
 
 #pragma mark - Button Actions
 
