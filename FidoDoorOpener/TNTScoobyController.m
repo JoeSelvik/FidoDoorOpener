@@ -74,6 +74,11 @@
     [self.defaults setObject:sessionId forKey:@"sessionId"];
 }
 
+- (void)setFullname:(NSString * )fullname
+{
+    [self.defaults setObject:fullname forKey:@"fullname"];
+}
+
 - (void)removeUsername
 {
     [self.defaults removeObjectForKey:@"username"];
@@ -82,6 +87,11 @@
 - (void)removeSessionId
 {
     [self.defaults removeObjectForKey:@"sessionId"];
+}
+
+- (void)removeFullname
+{
+    [self.defaults removeObjectForKey:@"fullname"];
 }
 
 
@@ -95,6 +105,11 @@
 - (NSString *)sessionId
 {
     return [self.defaults stringForKey:@"sessionId"];
+}
+
+- (NSString *)fullname
+{
+    return [self.defaults stringForKey:@"fullname"];
 }
 
 

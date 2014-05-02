@@ -127,7 +127,7 @@
                                                                  //NSLog(@"json returned body: %@", json);
                                                                  [sc setUsername:self.usernameInput.text];
                                                                  [sc setSessionId:[json objectForKey:@"id"]];
-                                                                 
+                                                                 [sc setFullname:[json objectForKey:@"full_name"]];
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];

@@ -13,6 +13,7 @@
 
 - (IBAction)signOut:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *doge;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -50,8 +51,6 @@
     UIImage *image = [UIImage imageNamed:dogeName];
     [self.doge setImage:image];
 }
-
-
 
 
 #pragma mark - Button Actions

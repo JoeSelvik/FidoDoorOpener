@@ -56,12 +56,20 @@
                                 <rect key="frame" x="35" y="101" width="250" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPE-S7-wH6">
+                                <rect key="frame" x="85" y="332" width="150" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.98823529409999999" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="1" green="0.98823529409999999" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.47450980392156861" green="0.59215686274509804" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Fido" id="o30-G4-HYn"/>
                     <connections>
                         <outlet property="doge" destination="18t-KE-CCX" id="aOl-d3-CgA"/>
+                        <outlet property="nameLabel" destination="qPE-S7-wH6" id="zzt-fC-xGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
