@@ -29,6 +29,8 @@
     NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
     NSLog(@"Username: %@, sessionId: %@", [sc username], [sc sessionId]);
     
+    _nameLabel.text = @"Welcome";
+    
     // Control the Doge
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dogeTapped:)];
     _doge.userInteractionEnabled = YES;
@@ -51,6 +53,16 @@
     UIImage *image = [UIImage imageNamed:dogeName];
     [self.doge setImage:image];
 }
+
+- (void)setMyNameLabel:(NSString *)fullname
+{
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    
+    self.nameLabel.text = [sc username];
+    //[self.nameLabel setNeedsDisplay];
+    [self.nameLabel reloadInputViews];
+}
+
 
 
 #pragma mark - Button Actions

@@ -8,6 +8,7 @@
 
 #import "TNTScoobyController.h"
 #import "TNTSignInViewController.h"
+#import "TNTLaunchViewController.h"
 
 @interface TNTSignInViewController ()
 
@@ -128,6 +129,14 @@
                                                                  [sc setUsername:self.usernameInput.text];
                                                                  [sc setSessionId:[json objectForKey:@"id"]];
                                                                  [sc setFullname:[json objectForKey:@"full_name"]];
+                                                                 
+                                                                 NSLog(@"Body: %@", json);
+                                                                 NSLog(@"full name: %@", [json objectForKey:@"full_name"]);
+                                                                 
+                                                                 // call method to update uilabel
+                                                                 TNTLaunchViewController *launchVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"launchViewController"];
+                                                                 [launchVC setMyNameLabel:[json objectForKey:@"full_name"]];
+                                                                 
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];

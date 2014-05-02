@@ -10,4 +10,6 @@
 
 @interface TNTLaunchViewController : UIViewController
 
+- (void)setMyNameLabel:(NSString *)fullname;
+
 @end
