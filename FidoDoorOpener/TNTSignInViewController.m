@@ -125,17 +125,14 @@
                                                                  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                                                                                      options:kNilOptions
                                                                                                                        error:&jerror];
-                                                                 //NSLog(@"json returned body: %@", json);
+
                                                                  [sc setUsername:self.usernameInput.text];
                                                                  [sc setSessionId:[json objectForKey:@"id"]];
-                                                                 
-                                                                 NSLog(@"Body: %@", json);
-                                                                 NSLog(@"full name: %@", [json objectForKey:@"full_name"]);
-                                                                 
-                                                                 // call method to update UILable
-                                                                 //TNTLaunchViewController *launchVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"launchViewController"];
-                                                                 //[ setMyNameLabel:[sc username]];
-                                                                 
+                                                                
+                                                                 // call method to update uilabel
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [self.delegate setMyNameLabel:[sc username]];
+                                                                 });
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];

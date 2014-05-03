@@ -15,7 +15,6 @@
 - (IBAction)signOut:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *doge;
-
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 
@@ -64,7 +63,7 @@
     //TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
     self.nameLabel.text = fullname;
-    [self.nameLabel setNeedsDisplay];
+    //[self.nameLabel setNeedsDisplay];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
