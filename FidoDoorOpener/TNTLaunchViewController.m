@@ -7,6 +7,7 @@
 //
 
 #import "TNTScoobyController.h"
+#import "TNTSignInViewController.h"
 #import "TNTLaunchViewController.h"
 
 @interface TNTLaunchViewController ()
@@ -14,7 +15,9 @@
 - (IBAction)signOut:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *doge;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
 
 @end
 
@@ -31,7 +34,6 @@
     NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
     NSLog(@"Username: %@, sessionId: %@", [sc username], [sc sessionId]);
     
-    _nameLabel.text = @"Welcome";
     
     // Control the Doge
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dogeTapped:)];
@@ -59,13 +61,19 @@
 
 - (void)setMyNameLabel:(NSString *)fullname
 {
-    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
+    //TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
-    self.nameLabel.text = [sc username];
+    self.nameLabel.text = fullname;
     [self.nameLabel setNeedsDisplay];
-    [self.nameLabel reloadInputViews];
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    TNTSignInViewController *signInVC = segue.destinationViewController;
+    if ( [signInVC isKindOfClass:[TNTSignInViewController class]]) {
+        signInVC.delegate = self;
+    }
+}
 
 
 
