@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880A286C1914AC4D001E5A2B /* TNTDoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880A286B1914AC4D001E5A2B /* TNTDoorViewController.m */; };
 		886CD33218E0CB29002275D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33118E0CB29002275D6 /* Foundation.framework */; };
 		886CD33418E0CB29002275D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33318E0CB29002275D6 /* CoreGraphics.framework */; };
 		886CD33618E0CB29002275D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33518E0CB29002275D6 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		880A286A1914AC4D001E5A2B /* TNTDoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTDoorViewController.h; sourceTree = "<group>"; };
+		880A286B1914AC4D001E5A2B /* TNTDoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTDoorViewController.m; sourceTree = "<group>"; };
 		886CD32E18E0CB29002275D6 /* FidoDoorOpener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FidoDoorOpener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886CD33118E0CB29002275D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		886CD33318E0CB29002275D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,6 +130,8 @@
 				88DD526918E23C3E00FF2760 /* TNTCreateAccountViewController.h */,
 				88DD526A18E23C3E00FF2760 /* TNTCreateAccountViewController.m */,
 				88B96E2E18FE436500C569CB /* TNTSignInViewController.h */,
+				880A286A1914AC4D001E5A2B /* TNTDoorViewController.h */,
+				880A286B1914AC4D001E5A2B /* TNTDoorViewController.m */,
 				88B96E2F18FE436500C569CB /* TNTSignInViewController.m */,
 				88F70FC918F85EE5005C5F0A /* TNTScoobyController.h */,
 				88F70FCA18F85EE5005C5F0A /* TNTScoobyController.m */,
@@ -267,6 +272,7 @@
 			files = (
 				886CD33E18E0CB29002275D6 /* main.m in Sources */,
 				886CD34218E0CB29002275D6 /* TNTAppDelegate.m in Sources */,
+				880A286C1914AC4D001E5A2B /* TNTDoorViewController.m in Sources */,
 				88F70FCB18F85EE5005C5F0A /* TNTScoobyController.m in Sources */,
 				88B96E3018FE436500C569CB /* TNTSignInViewController.m in Sources */,
 				88DD526B18E23C3E00FF2760 /* TNTCreateAccountViewController.m in Sources */,
