@@ -19,7 +19,6 @@
 
 @property NSURL *scoobyURL;
 @property (strong, nonatomic) NSURLSession *session;
-
 @property (strong, nonatomic) NSHTTPCookieStorage *cookieJar;
 
 + (TNTScoobyController *)sharedInstance;
@@ -27,14 +26,11 @@
 
 - (void)setUsername:(NSString *)username;
 - (void)setSessionId:(NSString *)sessionId;
-- (void)setFullname:(NSString *)fullname;
 
 - (void)removeUsername;
 - (void)removeSessionId;
-- (void)removeFullname;
 
 - (NSString *)username;
 - (NSString *)sessionId;
-- (NSString *)fullname;
 
 @end

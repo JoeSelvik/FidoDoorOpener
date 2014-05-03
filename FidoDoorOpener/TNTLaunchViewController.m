@@ -12,10 +12,12 @@
 @interface TNTLaunchViewController ()
 
 - (IBAction)signOut:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIImageView *doge;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
+
 
 @implementation TNTLaunchViewController
 
@@ -54,6 +56,7 @@
     [self.doge setImage:image];
 }
 
+
 - (void)setMyNameLabel:(NSString *)fullname
 {
     TNTScoobyController *sc = [TNTScoobyController sharedInstance];
@@ -62,6 +65,7 @@
     [self.nameLabel setNeedsDisplay];
     [self.nameLabel reloadInputViews];
 }
+
 
 
 

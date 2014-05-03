@@ -41,17 +41,14 @@
     
     // Set additional config settings here
     [sessionConfig setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
-    //[sessionConfig setHTTPAdditionalHeaders:@{@"Runscope-Request-Port": @"8000"}];
     
     _session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
     
     _cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     
-    
     // Set up phone defaults
     _defaults = [NSUserDefaults standardUserDefaults];
-    
 }
 
 // TODO - handle this properly
@@ -74,11 +71,6 @@
     [self.defaults setObject:sessionId forKey:@"sessionId"];
 }
 
-- (void)setFullname:(NSString * )fullname
-{
-    [self.defaults setObject:fullname forKey:@"fullname"];
-}
-
 - (void)removeUsername
 {
     [self.defaults removeObjectForKey:@"username"];
@@ -87,11 +79,6 @@
 - (void)removeSessionId
 {
     [self.defaults removeObjectForKey:@"sessionId"];
-}
-
-- (void)removeFullname
-{
-    [self.defaults removeObjectForKey:@"fullname"];
 }
 
 
@@ -105,11 +92,6 @@
 - (NSString *)sessionId
 {
     return [self.defaults stringForKey:@"sessionId"];
-}
-
-- (NSString *)fullname
-{
-    return [self.defaults stringForKey:@"fullname"];
 }
 
 
