@@ -8,6 +8,7 @@
 
 #import "TNTScoobyController.h"
 #import "TNTSignInViewController.h"
+#import "TNTLaunchViewController.h"
 
 @interface TNTSignInViewController ()
 
@@ -17,6 +18,7 @@
 - (IBAction)signInButton:(id)sender;
 
 @end
+
 
 @implementation TNTSignInViewController
 
@@ -99,13 +101,11 @@
     if (!jsonData) {
         NSLog(@"Got a jsonError: %@", jsonError);
     } else {
-        // TODO - check which encoding to use
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
     
     // Send jsonString to Scooby and display the response in the NSLog
-    
     NSURL *createSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createSessionURL];
@@ -119,15 +119,19 @@
                                                              if (!error && resp.statusCode == 201) {
                                                                  NSLog(@"Created a Session!");
                                                                  
-                                                                 // print body
+                                                                 // get body of response, json data
                                                                  NSError *jerror;
                                                                  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                                                                                      options:kNilOptions
                                                                                                                        error:&jerror];
-                                                                 //NSLog(@"json returned body: %@", json);
+
                                                                  [sc setUsername:self.usernameInput.text];
                                                                  [sc setSessionId:[json objectForKey:@"id"]];
-                                                                 
+                                                                
+                                                                 // call method to update UILable
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [self.delegate setMyNameLabel:[sc username]];
+                                                                 });
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.navigationController popToRootViewControllerAnimated:TRUE];

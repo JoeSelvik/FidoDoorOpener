@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TNTLaunchViewController : UIViewController
+@interface TNTLaunchViewController : UIViewController <TNTSignInDelegate>
 
 @end

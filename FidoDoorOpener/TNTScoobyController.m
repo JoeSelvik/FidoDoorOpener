@@ -33,24 +33,22 @@
 {
     NSLog(@"Initializing Scooby Controller");
     
-    _scoobyURL = [NSURL URLWithString:@"http://localhost:8000/"];
+    //_scoobyURL = [NSURL URLWithString:@"http://localhost:8000/"];
+    _scoobyURL = [NSURL URLWithString:@"https://fido-api.thenewtricks.com/latest/"];
     
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     // Set additional config settings here
     [sessionConfig setHTTPAdditionalHeaders:@{@"Content-Type": @"application/json"}];
-    //[sessionConfig setHTTPAdditionalHeaders:@{@"Runscope-Request-Port": @"8000"}];
     
     _session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
     
     _cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     
-    
     // Set up phone defaults
     _defaults = [NSUserDefaults standardUserDefaults];
-    
 }
 
 // TODO - handle this properly

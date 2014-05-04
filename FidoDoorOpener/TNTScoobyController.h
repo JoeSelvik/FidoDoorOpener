@@ -19,7 +19,6 @@
 
 @property NSURL *scoobyURL;
 @property (strong, nonatomic) NSURLSession *session;
-
 @property (strong, nonatomic) NSHTTPCookieStorage *cookieJar;
 
 + (TNTScoobyController *)sharedInstance;
