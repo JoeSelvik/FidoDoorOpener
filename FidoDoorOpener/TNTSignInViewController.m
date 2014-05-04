@@ -19,6 +19,7 @@
 
 @end
 
+
 @implementation TNTSignInViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -100,13 +101,11 @@
     if (!jsonData) {
         NSLog(@"Got a jsonError: %@", jsonError);
     } else {
-        // TODO - check which encoding to use
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
     
     // Send jsonString to Scooby and display the response in the NSLog
-    
     NSURL *createSessionURL = [NSURL URLWithString:@"sessions/" relativeToURL:sc.scoobyURL];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:createSessionURL];
@@ -120,7 +119,7 @@
                                                              if (!error && resp.statusCode == 201) {
                                                                  NSLog(@"Created a Session!");
                                                                  
-                                                                 // print body
+                                                                 // get body of response, json data
                                                                  NSError *jerror;
                                                                  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                                                                                      options:kNilOptions
@@ -129,7 +128,7 @@
                                                                  [sc setUsername:self.usernameInput.text];
                                                                  [sc setSessionId:[json objectForKey:@"id"]];
                                                                 
-                                                                 // call method to update uilabel
+                                                                 // call method to update UILable
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [self.delegate setMyNameLabel:[sc username]];
                                                                  });

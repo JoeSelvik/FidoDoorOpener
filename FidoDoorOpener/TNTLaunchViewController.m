@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *doge;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
-
 @end
 
 
@@ -48,6 +47,8 @@
 }
 
 
+#pragma mark - UI Controls
+
 - (void)dogeTapped:(UITapGestureRecognizer *) gestureRecognizer
 {
     int rand = (arc4random() % 4) + 2;
@@ -57,13 +58,9 @@
     [self.doge setImage:image];
 }
 
-
-- (void)setMyNameLabel:(NSString *)fullname
+- (void)setMyNameLabel:(NSString *)username
 {
-    //TNTScoobyController *sc = [TNTScoobyController sharedInstance];
-    
-    self.nameLabel.text = fullname;
-    //[self.nameLabel setNeedsDisplay];
+    self.nameLabel.text = username;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -73,7 +70,6 @@
         signInVC.delegate = self;
     }
 }
-
 
 
 #pragma mark - Button Actions

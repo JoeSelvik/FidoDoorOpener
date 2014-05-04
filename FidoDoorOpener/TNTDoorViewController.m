@@ -9,9 +9,11 @@
 #import "TNTDoorViewController.h"
 
 @interface TNTDoorViewController ()
+
 - (IBAction)openDoorButtonPressed:(id)sender;
 
 @end
+
 
 @implementation TNTDoorViewController
 
@@ -48,5 +50,6 @@
 */
 
 - (IBAction)openDoorButtonPressed:(id)sender {
+    
 }
 @end

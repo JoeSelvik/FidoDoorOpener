@@ -17,8 +17,9 @@
 
 @end
 
+
 @protocol TNTSignInDelegate <NSObject>
 
-- (void)setMyNameLabel:(NSString *)fullname;
+- (void)setMyNameLabel:(NSString *)username;
 
 @end
