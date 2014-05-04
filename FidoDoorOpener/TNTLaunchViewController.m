@@ -28,10 +28,15 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     TNTScoobyController *sc = [TNTScoobyController sharedInstance];
-    NSLog(@"Launch VC");
     NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
     NSLog(@"Username: %@, sessionId: %@", [sc username], [sc sessionId]);
     
+    // Set username on UI
+    if ([sc username]) {
+        [self setMyNameLabel:[sc username]];
+    } else {
+        _nameLabel.text = @"Welcome! Please sign in.";
+    }
     
     // Control the Doge
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dogeTapped:)];
@@ -60,7 +65,8 @@
 
 - (void)setMyNameLabel:(NSString *)username
 {
-    self.nameLabel.text = username;
+    NSString *usernameString = [NSString stringWithFormat:@"Hello, %@!", username];
+    self.nameLabel.text = usernameString;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -104,6 +110,11 @@
                                                            [sc removeUsername];
                                                            [sc removeSessionId];
                                                            
+                                                           // Clear the UI username
+                                                           dispatch_async(dispatch_get_main_queue(), ^{
+                                                               _nameLabel.text = @"Welcome! Please sign in.";
+                                                           });
+
                                                        } else {
                                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                                [[[UIAlertView alloc] initWithTitle:@"Error"
