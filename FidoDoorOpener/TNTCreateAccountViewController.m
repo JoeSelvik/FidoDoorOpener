@@ -85,7 +85,6 @@
     if (!jsonData) {
         NSLog(@"Got a jsonError: %@", jsonError);
     } else {
-        // TODO - check which encoding to use
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
