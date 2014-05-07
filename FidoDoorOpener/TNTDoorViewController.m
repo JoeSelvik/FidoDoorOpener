@@ -10,7 +10,8 @@
 
 @interface TNTDoorViewController ()
 
-- (IBAction)openDoorButtonPressed:(id)sender;
+- (IBAction)lockButtonPressed:(id)sender;
+- (IBAction)unlockButtonPressed:(id)sender;
 
 @end
 
@@ -49,7 +50,10 @@
 }
 */
 
-- (IBAction)openDoorButtonPressed:(id)sender {
-    
+
+- (IBAction)lockButtonPressed:(id)sender {
+}
+
+- (IBAction)unlockButtonPressed:(id)sender {
 }
 @end
