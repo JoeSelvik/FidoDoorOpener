@@ -162,7 +162,6 @@
                                 </state>
                                 <connections>
                                     <action selector="lockButtonPressed:" destination="8rV-8j-BE6" eventType="touchUpInside" id="s8p-5b-uxV"/>
-                                    <action selector="openDoorButtonPressed:" destination="8rV-8j-BE6" eventType="touchUpInside" id="MM6-Iq-AeI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3R-9H-mAz">

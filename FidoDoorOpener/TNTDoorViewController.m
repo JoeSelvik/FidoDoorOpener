@@ -57,7 +57,59 @@
 
 - (IBAction)lockButtonPressed:(id)sender
 {
+    TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     
+    // Create PUT request for Scooby
+    NSURL *lockDoorURL = [NSURL URLWithString:@"doors/1" relativeToURL:sc.scoobyURL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:lockDoorURL];
+    [request setHTTPMethod:@"PUT"];
+    
+    // Create JSON data to send with PUT
+    NSDictionary *unlockDoorData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    @YES, @"locked",
+                                    nil];
+    
+    NSString *jsonString;
+    NSError *jsonError;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:unlockDoorData options:NSJSONWritingPrettyPrinted error:&jsonError];
+    
+    if (!jsonData) {
+        NSLog(@"Got a jsonError: %@", jsonError);
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    // Send PUT request
+    NSURLSessionUploadTask *uploadTask = [sc.session uploadTaskWithRequest:request
+                                                                  fromData:jsonData
+                                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                             NSHTTPURLResponse *resp = (NSHTTPURLResponse*) response;
+                                                             
+                                                             if (!error && resp.statusCode == 200) {
+                                                                 NSLog(@"Locked the door!");
+                                                                 NSLog(@"Code: %ld", (long)resp.statusCode);
+                                                                 
+                                                                 // change text
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     self.lockStatusLabel.text = @"Locked";
+                                                                 });
+                                                                 
+                                                             } else {
+                                                                 NSString *errMsg = [NSString stringWithFormat:@"Could Lock the door. Code %ld", (long)resp.statusCode];
+                                                                 NSLog(errMsg);
+                                                                 
+                                                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                                                     [[[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                 message:errMsg
+                                                                                                delegate:nil
+                                                                                       cancelButtonTitle:@"Close"
+                                                                                       otherButtonTitles: nil] show];
+                                                                 });
+                                                             }
+                                                             
+                                                         }];
+    
+    [uploadTask resume];
 }
 
 - (IBAction)unlockButtonPressed:(id)sender
@@ -116,8 +168,6 @@
     
     [uploadTask resume];
 }// end (IBAction)unlockButtonPressed:(id)sender
-
-
 
 
 @end
