@@ -38,7 +38,7 @@
     
     TNTScoobyController *sc = [TNTScoobyController sharedInstance];
     NSLog(@"Signin VC");
-    NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
+    //NSLog(@"User signed in with cookies[%lu]: %@", (unsigned long)[[sc.cookieJar cookies] count], [sc.cookieJar cookies]);
     NSLog(@"Username: %@, sessionId: %@", [sc username], [sc sessionId]);
 }
 
