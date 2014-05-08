@@ -10,6 +10,7 @@
 
 @interface TNTUser : TNTServiceObject
 
+@property (strong, nonatomic) UIImage *photo;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *fullName;
@@ -18,9 +19,11 @@
 - (id)initWithResourceId:(NSUInteger)resourceId
                createdAt:(NSDate *)createdAt
                updatedAt:(NSDate *)updatedAt
+                   photo:(UIImage *)photo
                    email:(NSString *)email
                 password:(NSString *)password
                 fullName:(NSString *)fullName
                    admin:(BOOL)admin;
 
 @end
+

@@ -305,10 +305,10 @@
             </objects>
             <point key="canvasLocation" x="1346" y="-86"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Machine Detail View Controller-->
         <scene sceneID="a3D-jh-fvq">
             <objects>
-                <tableViewController id="Zo8-wI-Jqz" sceneMemberID="viewController">
+                <tableViewController id="Zo8-wI-Jqz" customClass="TNTMachineDetailViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jU3-9X-CCM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -353,7 +353,7 @@
                                     <outlet property="machineDetailImage" destination="5pG-LS-mvK" id="wgX-xi-HWm"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccessCell" textLabel="zm1-qe-eSC" style="IBUITableViewCellStyleDefault" id="oJg-mX-YR8">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccessCell" textLabel="zm1-qe-eSC" rowHeight="44" style="IBUITableViewCellStyleDefault" id="oJg-mX-YR8">
                                 <rect key="frame" x="0.0" y="392" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJg-mX-YR8" id="LcX-pw-I7B">
@@ -369,7 +369,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.98823529409999999" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TempAccessCell" textLabel="aq0-a6-do3" style="IBUITableViewCellStyleDefault" id="aQu-mB-GVL">
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>

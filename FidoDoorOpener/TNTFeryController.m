@@ -22,7 +22,7 @@
 - (TNTUser *)currentUser
 {
     return [[TNTUser alloc] initWithResourceId:1 createdAt:nil updatedAt:nil
-                                         email:@"cruella@thenewtricks.com" password:nil fullName:@"Cruella Deville"
+                                         photo:nil email:@"cruella@thenewtricks.com" password:nil fullName:@"Cruella Deville"
                                          admin:YES];
 }
 

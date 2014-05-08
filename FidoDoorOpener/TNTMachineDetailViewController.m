@@ -84,6 +84,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // Return the number of sections.
     return 1;
 }
 
@@ -102,9 +103,7 @@
         //if no access, there will be 5 rows (picture+buttons, request access, request temp access, status, report problem)
         else return 5;
     }
-
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -161,7 +160,7 @@
                 break;
         }
     }
-
+    
     else{
         //check to see if the currentn user has access to the current machine
         if(YES){ //no variable in existence
@@ -253,6 +252,14 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Set the row height for the top row to 300, the rest should be 44
+    if (indexPath.row == 0)
+        return 300.0;
+    else
+        return 44.0;
+}
 
 /*
 // Override to support conditional editing of the table view.
