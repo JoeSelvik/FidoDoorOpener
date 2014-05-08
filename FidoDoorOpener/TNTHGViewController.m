@@ -6,7 +6,11 @@
 //  Copyright (c) 2014 Joe Selvik. All rights reserved.
 //
 
+#import "TNTDeviceCell.h"
+#import "TNTFeryController.h"
 #import "TNTHGViewController.h"
+#import "TNTMachineDetailViewController.h"
+#import "TNTZoneHeaderView.h"
 
 @interface TNTHGViewController () <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -19,7 +23,14 @@
 
 @end
 
+
 @implementation TNTHGViewController
+
+- (void)configure
+{
+    _fery = [TNTFeryController sharedInstance];
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -87,8 +98,79 @@
     return [devices count];
 }
 
+// 2 - Returns the number of zones
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    NSArray *zones = [self.fery zones];
+    
+    return [zones count];
+}
+
+// 3 - Returns a cell with the specified index path number
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    // Create cell instance
+    TNTDeviceCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"DeviceCell" forIndexPath:indexPath];
+    
+    // Get the data from the fery
+    TNTZone *zone = [self.fery zones][indexPath.section];
+    TNTMachine *device = zone.devices[indexPath.row];
+    
+    // Get the device's image and load it into the device image
+    NSString *imageName = [self setMachineHeaderImage:device.type];
+    UIImage *img = [UIImage imageNamed:imageName];
+    [cell setDeviceImage:img];
+    
+    // Set the device name
+    [cell setDeviceText:device.name];
+    
+    return cell;
+}
+
+// 4 - Returns either the header or footer view of searches
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    // Create ZoneHeaderView instance
+    TNTZoneHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"ZoneHeaderView" forIndexPath:indexPath];
+    
+    // Get the zone from the fery
+    TNTZone *zone = [self.fery zones][indexPath.section];
+    
+    // Set the zone image
+    UIImage *headerimg1 = [UIImage imageNamed:@"gg.png"];
+    [headerView setZoneImage:headerimg1];
+    
+    // Set the zone name
+    [headerView setZoneText:zone.name];
+    [headerView setZoneInitials:zone.shortCode];
+    
+    return headerView;
+}
 
 
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    // TODO: Select item
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // TODO: Deselect item
+}
+
+
+#pragma mark - Segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    TNTDeviceCell *cell = (TNTDeviceCell *)sender;
+    NSIndexPath *path = [self.collectionView indexPathForCell:cell];
+    
+    if ([segue.identifier isEqualToString:@"ShowDevice"]) {
+        TNTMachineDetailViewController *machineDetailViewController = segue.destinationViewController;
+        TNTZone *zone = [self.fery zones][path.section];
+        TNTMachine *device = zone.devices[path.row];
+        
+        machineDetailViewController.machine = device;
+        machineDetailViewController.title = device.name;
+        
+    }
+}
 
 
 @end

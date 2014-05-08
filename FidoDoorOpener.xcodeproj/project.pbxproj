@@ -17,6 +17,8 @@
 		882238E9191B68CE00F163A8 /* TNTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238E8191B68CE00F163A8 /* TNTDevice.m */; };
 		882238EC191B695000F163A8 /* TNTMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238EB191B695000F163A8 /* TNTMachine.m */; };
 		882238EF191B69EF00F163A8 /* TNTZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238EE191B69EF00F163A8 /* TNTZone.m */; };
+		882238F2191B6D1200F163A8 /* TNTMachineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238F1191B6D1200F163A8 /* TNTMachineDetailViewController.m */; };
+		882238F5191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238F4191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m */; };
 		886CD33218E0CB29002275D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33118E0CB29002275D6 /* Foundation.framework */; };
 		886CD33418E0CB29002275D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33318E0CB29002275D6 /* CoreGraphics.framework */; };
 		886CD33618E0CB29002275D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33518E0CB29002275D6 /* UIKit.framework */; };
@@ -67,6 +69,10 @@
 		882238EB191B695000F163A8 /* TNTMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTMachine.m; sourceTree = "<group>"; };
 		882238ED191B69EF00F163A8 /* TNTZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTZone.h; sourceTree = "<group>"; };
 		882238EE191B69EF00F163A8 /* TNTZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTZone.m; sourceTree = "<group>"; };
+		882238F0191B6D1200F163A8 /* TNTMachineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTMachineDetailViewController.h; sourceTree = "<group>"; };
+		882238F1191B6D1200F163A8 /* TNTMachineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTMachineDetailViewController.m; sourceTree = "<group>"; };
+		882238F3191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTMachineDetailHeaderCell.h; sourceTree = "<group>"; };
+		882238F4191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTMachineDetailHeaderCell.m; sourceTree = "<group>"; };
 		886CD32E18E0CB29002275D6 /* FidoDoorOpener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FidoDoorOpener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886CD33118E0CB29002275D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		886CD33318E0CB29002275D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +168,10 @@
 				882238DC191B5F8400F163A8 /* TNTZoneHeaderView.m */,
 				882238D8191B5B6000F163A8 /* TNTDeviceCell.h */,
 				882238D9191B5B6000F163A8 /* TNTDeviceCell.m */,
+				882238F0191B6D1200F163A8 /* TNTMachineDetailViewController.h */,
+				882238F1191B6D1200F163A8 /* TNTMachineDetailViewController.m */,
+				882238F3191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.h */,
+				882238F4191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m */,
 				88DD526918E23C3E00FF2760 /* TNTCreateAccountViewController.h */,
 				88DD526A18E23C3E00FF2760 /* TNTCreateAccountViewController.m */,
 				88B96E2E18FE436500C569CB /* TNTSignInViewController.h */,
@@ -324,11 +334,13 @@
 				886CD34218E0CB29002275D6 /* TNTAppDelegate.m in Sources */,
 				880A286C1914AC4D001E5A2B /* TNTDoorViewController.m in Sources */,
 				882238DD191B5F8400F163A8 /* TNTZoneHeaderView.m in Sources */,
+				882238F5191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m in Sources */,
 				882238EF191B69EF00F163A8 /* TNTZone.m in Sources */,
 				88F70FCB18F85EE5005C5F0A /* TNTScoobyController.m in Sources */,
 				882238D4191B51A900F163A8 /* TNTHGViewController.m in Sources */,
 				88B96E3018FE436500C569CB /* TNTSignInViewController.m in Sources */,
 				882238EC191B695000F163A8 /* TNTMachine.m in Sources */,
+				882238F2191B6D1200F163A8 /* TNTMachineDetailViewController.m in Sources */,
 				882238E0191B65AA00F163A8 /* TNTFeryController.m in Sources */,
 				882238E9191B68CE00F163A8 /* TNTDevice.m in Sources */,
 				88DD526B18E23C3E00FF2760 /* TNTCreateAccountViewController.m in Sources */,
