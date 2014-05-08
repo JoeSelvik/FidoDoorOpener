@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TNTMachine.h"
 #import "TNTUser.h"
+#import "TNTZone.h"
 
 @interface TNTFeryController : NSObject
 
