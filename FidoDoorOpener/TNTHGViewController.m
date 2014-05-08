@@ -37,8 +37,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self configure];
     }
     return self;
+}
+
+// Loaded from the storyboard
+- (void)awakeFromNib
+{
+    [self configure];
 }
 
 - (void)viewDidLoad

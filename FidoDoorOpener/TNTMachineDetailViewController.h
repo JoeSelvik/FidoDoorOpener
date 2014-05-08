@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Joe Selvik. All rights reserved.
 //
 
-#import "TNTMachine.h"
+#import "TNTMAchine.h"
 #import <UIKit/UIKit.h>
 
 @interface TNTMachineDetailViewController : UITableViewController

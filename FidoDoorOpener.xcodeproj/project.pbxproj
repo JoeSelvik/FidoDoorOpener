@@ -19,6 +19,7 @@
 		882238EF191B69EF00F163A8 /* TNTZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238EE191B69EF00F163A8 /* TNTZone.m */; };
 		882238F2191B6D1200F163A8 /* TNTMachineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238F1191B6D1200F163A8 /* TNTMachineDetailViewController.m */; };
 		882238F5191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238F4191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m */; };
+		882238F8191B7FF100F163A8 /* TNTDoor.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238F7191B7FF100F163A8 /* TNTDoor.m */; };
 		886CD33218E0CB29002275D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33118E0CB29002275D6 /* Foundation.framework */; };
 		886CD33418E0CB29002275D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33318E0CB29002275D6 /* CoreGraphics.framework */; };
 		886CD33618E0CB29002275D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33518E0CB29002275D6 /* UIKit.framework */; };
@@ -73,6 +74,8 @@
 		882238F1191B6D1200F163A8 /* TNTMachineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTMachineDetailViewController.m; sourceTree = "<group>"; };
 		882238F3191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTMachineDetailHeaderCell.h; sourceTree = "<group>"; };
 		882238F4191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTMachineDetailHeaderCell.m; sourceTree = "<group>"; };
+		882238F6191B7FF100F163A8 /* TNTDoor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTDoor.h; sourceTree = "<group>"; };
+		882238F7191B7FF100F163A8 /* TNTDoor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTDoor.m; sourceTree = "<group>"; };
 		886CD32E18E0CB29002275D6 /* FidoDoorOpener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FidoDoorOpener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886CD33118E0CB29002275D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		886CD33318E0CB29002275D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -192,6 +195,8 @@
 				882238EB191B695000F163A8 /* TNTMachine.m */,
 				882238E4191B675B00F163A8 /* TNTUser.h */,
 				882238E5191B675B00F163A8 /* TNTUser.m */,
+				882238F6191B7FF100F163A8 /* TNTDoor.h */,
+				882238F7191B7FF100F163A8 /* TNTDoor.m */,
 				886CD34918E0CB29002275D6 /* Images.xcassets */,
 				886CD33818E0CB29002275D6 /* Supporting Files */,
 			);
@@ -337,6 +342,7 @@
 				882238F5191B6EDA00F163A8 /* TNTMachineDetailHeaderCell.m in Sources */,
 				882238EF191B69EF00F163A8 /* TNTZone.m in Sources */,
 				88F70FCB18F85EE5005C5F0A /* TNTScoobyController.m in Sources */,
+				882238F8191B7FF100F163A8 /* TNTDoor.m in Sources */,
 				882238D4191B51A900F163A8 /* TNTHGViewController.m in Sources */,
 				88B96E3018FE436500C569CB /* TNTSignInViewController.m in Sources */,
 				882238EC191B695000F163A8 /* TNTMachine.m in Sources */,

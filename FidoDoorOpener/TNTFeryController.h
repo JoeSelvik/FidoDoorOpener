@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TNTDoor.h"
 #import "TNTMachine.h"
 #import "TNTUser.h"
 #import "TNTZone.h"

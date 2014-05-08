@@ -28,8 +28,14 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        [self configure];
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [self configure];
 }
 
 - (void)viewDidLoad
@@ -41,6 +47,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // This makes sure nothing goes underneith the nav bar
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)didReceiveMemoryWarning
