@@ -11,6 +11,10 @@
 		882238D4191B51A900F163A8 /* TNTHGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238D3191B51A900F163A8 /* TNTHGViewController.m */; };
 		882238DA191B5B6000F163A8 /* TNTDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238D9191B5B6000F163A8 /* TNTDeviceCell.m */; };
 		882238DD191B5F8400F163A8 /* TNTZoneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238DC191B5F8400F163A8 /* TNTZoneHeaderView.m */; };
+		882238E0191B65AA00F163A8 /* TNTFeryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238DF191B65AA00F163A8 /* TNTFeryController.m */; };
+		882238E3191B669400F163A8 /* TNTServiceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238E2191B669400F163A8 /* TNTServiceObject.m */; };
+		882238E6191B675B00F163A8 /* TNTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238E5191B675B00F163A8 /* TNTUser.m */; };
+		882238E9191B68CE00F163A8 /* TNTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 882238E8191B68CE00F163A8 /* TNTDevice.m */; };
 		886CD33218E0CB29002275D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33118E0CB29002275D6 /* Foundation.framework */; };
 		886CD33418E0CB29002275D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33318E0CB29002275D6 /* CoreGraphics.framework */; };
 		886CD33618E0CB29002275D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886CD33518E0CB29002275D6 /* UIKit.framework */; };
@@ -49,6 +53,14 @@
 		882238D9191B5B6000F163A8 /* TNTDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTDeviceCell.m; sourceTree = "<group>"; };
 		882238DB191B5F8400F163A8 /* TNTZoneHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TNTZoneHeaderView.h; path = ../TNTZoneHeaderView.h; sourceTree = "<group>"; };
 		882238DC191B5F8400F163A8 /* TNTZoneHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TNTZoneHeaderView.m; path = ../TNTZoneHeaderView.m; sourceTree = "<group>"; };
+		882238DE191B65AA00F163A8 /* TNTFeryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTFeryController.h; sourceTree = "<group>"; };
+		882238DF191B65AA00F163A8 /* TNTFeryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTFeryController.m; sourceTree = "<group>"; };
+		882238E1191B669400F163A8 /* TNTServiceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTServiceObject.h; sourceTree = "<group>"; };
+		882238E2191B669400F163A8 /* TNTServiceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTServiceObject.m; sourceTree = "<group>"; };
+		882238E4191B675B00F163A8 /* TNTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTUser.h; sourceTree = "<group>"; };
+		882238E5191B675B00F163A8 /* TNTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTUser.m; sourceTree = "<group>"; };
+		882238E7191B68CE00F163A8 /* TNTDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNTDevice.h; sourceTree = "<group>"; };
+		882238E8191B68CE00F163A8 /* TNTDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNTDevice.m; sourceTree = "<group>"; };
 		886CD32E18E0CB29002275D6 /* FidoDoorOpener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FidoDoorOpener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886CD33118E0CB29002275D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		886CD33318E0CB29002275D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +147,8 @@
 			children = (
 				886CD34018E0CB29002275D6 /* TNTAppDelegate.h */,
 				886CD34118E0CB29002275D6 /* TNTAppDelegate.m */,
+				882238DE191B65AA00F163A8 /* TNTFeryController.h */,
+				882238DF191B65AA00F163A8 /* TNTFeryController.m */,
 				886CD34318E0CB29002275D6 /* Main.storyboard */,
 				882238D2191B51A900F163A8 /* TNTHGViewController.h */,
 				882238D3191B51A900F163A8 /* TNTHGViewController.m */,
@@ -152,6 +166,12 @@
 				88F70FCA18F85EE5005C5F0A /* TNTScoobyController.m */,
 				886CD34618E0CB29002275D6 /* TNTLaunchViewController.h */,
 				886CD34718E0CB29002275D6 /* TNTLaunchViewController.m */,
+				882238E1191B669400F163A8 /* TNTServiceObject.h */,
+				882238E2191B669400F163A8 /* TNTServiceObject.m */,
+				882238E7191B68CE00F163A8 /* TNTDevice.h */,
+				882238E8191B68CE00F163A8 /* TNTDevice.m */,
+				882238E4191B675B00F163A8 /* TNTUser.h */,
+				882238E5191B675B00F163A8 /* TNTUser.m */,
 				886CD34918E0CB29002275D6 /* Images.xcassets */,
 				886CD33818E0CB29002275D6 /* Supporting Files */,
 			);
@@ -289,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				882238DA191B5B6000F163A8 /* TNTDeviceCell.m in Sources */,
+				882238E6191B675B00F163A8 /* TNTUser.m in Sources */,
 				886CD33E18E0CB29002275D6 /* main.m in Sources */,
 				886CD34218E0CB29002275D6 /* TNTAppDelegate.m in Sources */,
 				880A286C1914AC4D001E5A2B /* TNTDoorViewController.m in Sources */,
@@ -296,8 +317,11 @@
 				88F70FCB18F85EE5005C5F0A /* TNTScoobyController.m in Sources */,
 				882238D4191B51A900F163A8 /* TNTHGViewController.m in Sources */,
 				88B96E3018FE436500C569CB /* TNTSignInViewController.m in Sources */,
+				882238E0191B65AA00F163A8 /* TNTFeryController.m in Sources */,
+				882238E9191B68CE00F163A8 /* TNTDevice.m in Sources */,
 				88DD526B18E23C3E00FF2760 /* TNTCreateAccountViewController.m in Sources */,
 				886CD34818E0CB29002275D6 /* TNTLaunchViewController.m in Sources */,
+				882238E3191B669400F163A8 /* TNTServiceObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
