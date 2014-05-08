@@ -369,6 +369,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.98823529409999999" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TempAccessCell" textLabel="aq0-a6-do3" style="IBUITableViewCellStyleDefault" id="aQu-mB-GVL">
                                 <rect key="frame" x="0.0" y="436" width="320" height="44"/>
