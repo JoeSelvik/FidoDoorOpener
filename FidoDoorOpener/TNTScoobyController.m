@@ -35,6 +35,7 @@
     
     //_scoobyURL = [NSURL URLWithString:@"http://localhost:8000/"];
     _scoobyURL = [NSURL URLWithString:@"https://fido-api.thenewtricks.com/latest/"];
+    //_scoobyURL = [NSURL URLWithString:@"https://fido--api-thenewtricks-com-qe9xiek2q8fp.runscope.net/latest"];
     
     // NSSession Config
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];

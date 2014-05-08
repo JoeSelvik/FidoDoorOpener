@@ -95,8 +95,9 @@
                                                                  });
                                                                  
                                                              } else {
-                                                                 NSString *errMsg = [NSString stringWithFormat:@"Could Lock the door. Code %ld", (long)resp.statusCode];
+                                                                 NSString *errMsg = [NSString stringWithFormat:@"Could not lock the door. Code %ld", (long)resp.statusCode];
                                                                  NSLog(errMsg);
+                                                                 NSLog(@"respponse: %@", resp);
                                                                  
                                                                  dispatch_async(dispatch_get_main_queue(), ^{
                                                                      [[[UIAlertView alloc] initWithTitle:@"Error"
