@@ -10,4 +10,7 @@
 
 @interface TNTDeviceCell : UICollectionViewCell
 
+-(void)setDeviceText:(NSString *)text;
+-(void)setDeviceImage:(UIImage *)img;
+
 @end

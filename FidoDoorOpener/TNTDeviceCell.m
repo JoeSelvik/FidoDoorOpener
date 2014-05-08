@@ -8,6 +8,13 @@
 
 #import "TNTDeviceCell.h"
 
+@interface TNTDeviceCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *deviceImageView;
+@property (weak, nonatomic) IBOutlet UILabel *deviceLabel;
+
+@end
+
 @implementation TNTDeviceCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -27,5 +34,18 @@
     // Drawing code
 }
 */
+
+#pragma mark - Device Cell UI Methods
+
+-(void)setDeviceText:(NSString *)text
+{
+    self.deviceLabel.text = text;
+}
+
+-(void)setDeviceImage:(UIImage *)img
+{
+    self.deviceImageView.image = img;
+}
+
 
 @end
