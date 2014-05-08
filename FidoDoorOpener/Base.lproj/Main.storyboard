@@ -257,7 +257,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Nnx-Gs-UeV" customClass="TNTHeaderView">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Nnx-Gs-UeV" customClass="TNTZoneHeaderView">
                                     <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <subviews>
@@ -272,7 +272,19 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yd-bC-EAT">
+                                            <rect key="frame" x="4" y="14" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <connections>
+                                        <outlet property="zoneImageView" destination="WHp-xx-eI5" id="fbS-Fq-xvk"/>
+                                        <outlet property="zoneInitials" destination="9yd-bC-EAT" id="Q25-En-Xka"/>
+                                        <outlet property="zoneLabel" destination="TdT-7u-gRb" id="fvk-UG-2Mn"/>
+                                    </connections>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
